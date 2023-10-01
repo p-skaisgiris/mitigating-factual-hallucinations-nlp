@@ -14,6 +14,7 @@ from datasets import load_dataset
 from evaluate import load
 import evaluate
 
+import os
 from metric.metrics import compute_metrics
 import nltk
 nltk.download('punkt')
@@ -107,9 +108,12 @@ if __name__ == "__main__":
     # using datetime module YYYY_MM_DD_HH_MM
     from datetime import datetime
     ID = datetime.now().strftime("%Y_%m_%d_%H_%M")
+
+    if not os.path.exists(f"models/"):
+        os.makedirs(f"models/")
     model_id = f"models/{cfg.model}_{ID}/"
     training_args = Seq2SeqTrainingArguments(
-        output_dir=f"models/{cfg.model}/",
+        output_dir=f"{model_id}/",
         evaluation_strategy="epoch",
         learning_rate=2e-5,
         per_device_train_batch_size=10,
