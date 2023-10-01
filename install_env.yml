@@ -1,0 +1,14 @@
+name: DL4NLP
+channels:
+  - pytorch
+  - nvidia
+  - defaults
+dependencies:
+  - 'transformers[torch]'
+  - safetensors
+  - sentencepiece
+  - pytorch
+  - torchvision
+  - torchaudio
+  - pytorch-cuda=11.8
+
