@@ -1,6 +1,6 @@
 ## Own files
 /metric/bleurt/BLEURT-20
-/models/*
+/models/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
