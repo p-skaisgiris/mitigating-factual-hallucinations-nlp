@@ -1,5 +1,6 @@
 ## Own files
 /metric/bleurt/BLEURT-20
+/metric/bleurt/bleurt/
 /models/
 
 # Byte-compiled / optimized / DLL files
