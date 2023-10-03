@@ -15,7 +15,10 @@ checkpoint = "t5-small"
 
 def get_model_tok(model_name):
 
-    model = AutoModelForSeq2SeqLM.from_pretrained(checkpoint)
-    tokenizer = AutoTokenizer.from_pretrained(checkpoint)
+    print("model", model_name)
+    
+    model = AutoModelForSeq2SeqLM.from_pretrained(model_name)
+    tokenizer = AutoTokenizer.from_pretrained(model_name)
+
 
     return model, tokenizer

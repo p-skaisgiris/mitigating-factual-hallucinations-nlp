@@ -32,7 +32,7 @@ if __name__ == "__main__":
     # TODO: Data Parameters
 
     # TODO: Model Parameters
-    parser.add_argument("--model", choices=['t5-small','gpt-tiny', 'gpt-Neo', 'gpt2', 'PEGASUS', 'phi-1.5'], 
+    parser.add_argument("--model", choices=['google/t5-efficient-tiny, t5-small','gpt-tiny', 'gpt-Neo', 'gpt2', 'PEGASUS', 'phi-1.5'], 
                         default="t5-small", help='choose a model architecture')
     
     # Training Parameters
@@ -100,7 +100,9 @@ if __name__ == "__main__":
     # dataset = load_dataset("xsum",  split="train[:1%]")
     dataset = load_dataset("xsum",  split="validation[:1%]")
 
-    model, tokenizer = get_model_tok(cfg.model)
+
+    # model, tokenizer = get_model_tok(cfg.model)
+    model, tokenizer = get_model_tok('google/t5-efficient-tiny')
 
     train_dataset, eval_dataset, data_collator = process_dataset(dataset, tokenizer, model)
     # tokenized_dataset, data_collator = process_dataset(dataset, tokenizer, model)
@@ -178,6 +180,10 @@ if __name__ == "__main__":
     # print("---------Pre-loading and init. fractsumm metric---------")
     # from factsumm import FactSumm
     # factsumm = FactSumm()
+
+    # remove memory torch
+    torch.cuda.empty_cache()
+
 
     print("-------- Start training --------")
     for epoch in range(training_args.num_train_epochs):

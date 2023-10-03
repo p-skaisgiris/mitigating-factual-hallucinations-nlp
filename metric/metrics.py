@@ -57,6 +57,17 @@ def compute_metrics(tokenizer, document_texts_batch, summary_texts_batch, summar
 
     factsumm = FactSumm()
 
+    print("-------- Start evaluation --------")
+    print("num_samples", num_samples)
+
+    batch_scores = {
+        "QA_based": [],
+        "ROUGE": [],
+        "BERT": [],
+        "BLEURT": [],
+        "SUMMAC": [],
+        "ensemble": []
+    }
     for i in range(num_samples):
         article = document_texts_batch[i]
         summary_texts = summary_texts_batch[i]  # List of vocab IDs
@@ -82,22 +93,54 @@ def compute_metrics(tokenizer, document_texts_batch, summary_texts_batch, summar
         # BERT = factsumm.calculate_bert_score(article, summary) #  device="cuda")
         BERT = 1
 
+        # calculate Bert scores using 
+        import torch
+
+        # remove cache
+        torch.cuda.empty_cache()
+
+        from evaluate import load
+        bertscore = load("bertscore")  
+      # predictions = ["hello there", "general kenobi"]
+        # references = ["hello there", "general kenobi"]
+        predictions = [article]
+        references = [summary]
+
+        results = bertscore.compute(predictions=predictions, references=references, lang="en")
+        print(results, "takign only f1 score")
+        BERT = results["f1"]
+
+
         from transformers import pipeline
         # Load the BLEURT scorer model
-        checkpoint = "../bleurt/BLEURT-20"
+        
+        # check in model for BLEURT-20-D3 or BLEURT-20
+        import os
+        if os.path.exists("metric/bleurt/bleurt/BLEURT-20-D3/"):
+            checkpoint = "metric/bleurt/bleurt/BLEURT-20-D3/"
+        else:
+            checkpoint = "metric/bleurt/bleurt/BLEURT-20/"
+            
         bleurt_scorer = pipeline(task="table-question-generation", model=checkpoint, device=device)
         # Define your reference and candidate sentences
-        references = [summary_texts]
+        references = [article]
         candidates = [summary_pred_text]
         # Compute BLEURT scores for the candidates
         BLEURT = bleurt_scorer(references=references, candidates=candidates)
 
-        SUMMAC = model_conv.score([article], [summary],  device=device)
 
-        ensemble = np.mean([QA_based, ROUGE, BERT, BLEURT, SUMMAC])
+        model_conv = SummaCConv(models=["vitc"], bins='percentile', granularity="sentence", nli_labels="e", device=device, start_file="default", agg="mean")
+        SUMMAC = model_conv.score([article], [summary_pred_text],  device=device)
 
-        ensemble_scores.append(ensemble)
-
+        # update scores
+        batch_scores["QA_based"].append(QA_based)
+        batch_scores["ROUGE"].append(ROUGE)
+        batch_scores["BERT"].append(BERT)
+        batch_scores["BLEURT"].append(BLEURT)
+        batch_scores["SUMMAC"].append(SUMMAC)
+        batch_scores["ensemble"].append(np.mean([QA_based, ROUGE, BERT, BLEURT, SUMMAC]))
+        
+        print("batch_scores", batch_scores)
     # Calculate the average ensemble score over the batch
     batch_ensemble_score = np.mean(ensemble_scores)
 
