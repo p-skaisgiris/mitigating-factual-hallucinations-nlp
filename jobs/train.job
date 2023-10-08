@@ -1,0 +1,23 @@
+#!/bin/bash
+
+#SBATCH --partition=gpu
+#SBATCH --gpus-per-node=1
+#SBATCH --job-name=Bart_large60
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=18
+#SBATCH --time=15:00:00
+#SBATCH --mem=100000M
+#SBATCH --output=jobs/output/slurm_output_%A_facebook_bart.out
+
+module purge
+module load 2022
+module load Anaconda3/2022.05
+
+source activate DL4NLP
+
+cd $HOME/dl4nlp-text-summarization/
+
+# python train.py --wandb-mode disabled --model facebook/bart-base
+# python train.py --model facebook/bart-base --epochs 60
+python train.py --model facebook/bart-large --epochs 60 
+# python train.py --model t5-small --epochs 10
