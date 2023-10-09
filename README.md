@@ -11,6 +11,11 @@ How to combate hallucination; with prompt engineering or Chain of Verification (
 
 training--files
 
+- Lots of bugs and package to do manually, see hallucination.ipynb
+  - For factsumm to get the package dir. :
+      - python in terminal
+      - >>> import factsumm
+      - >>> factsumm.__file__
 
 - ??conda env create -f install_env.yml??
 
