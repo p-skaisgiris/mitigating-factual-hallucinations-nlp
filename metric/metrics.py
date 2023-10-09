@@ -1,57 +1,121 @@
-"Eval Metric"
-
-# import evaluate
-# rouge = evaluate.load("rouge")
-# metric = load("rouge")
-
 import numpy as np
 import nltk
+import torch
 
-from .summac.summac.model_summac import SummaCZS, SummaCConv
+from summac.model_summac import SummaCZS, SummaCConv
 from factsumm import FactSumm
+import os
+from transformers import pipeline
+from bleurt.score import BleurtScorer
+import wandb
+device = "cpu"
+if torch.cuda.is_available():
+    device = "cuda"
 
-# def compute_metrics(eval_pred):
-#     predictions, labels = eval_pred
-#     decoded_preds = tokenizer.batch_decode(predictions, skip_special_tokens=True)
-#     labels = np.where(labels != -100, labels, tokenizer.pad_token_id)
-#     decoded_labels = tokenizer.batch_decode(labels, skip_special_tokens=True)
+# TODO: Change to the BLEURT-20 model instead!
+BLEURT_MODEL = "metric/bleurt/BLEURT-20-D3"
+if os.path.exists(BLEURT_MODEL):
+    checkpoint = BLEURT_MODEL
+elif os.path.exists("metric/bleurt/bleurt/BLEURT-20/"):
+    checkpoint = "metric/bleurt/bleurt/BLEURT-20/" 
+else:
+    print("BLEURT MODEL NOT FOUND")
+    checkpoint = None
 
-#     result = rouge.compute(predictions=decoded_preds, references=decoded_labels, use_stemmer=True)
-
-#     prediction_lens = [np.count_nonzero(pred != tokenizer.pad_token_id) for pred in predictions]
-#     result["gen_len"] = np.mean(prediction_lens)
-
-#     return {k: round(v, 4) for k, v in result.items()}
-
-
-
-
-# def computre_rouge(eval_pred, tokenizer):
-#     predictions, labels = eval_pred
-#     decoded_preds = tokenizer.batch_decode(predictions, skip_special_tokens=True)
-#     # Replace -100 in the labels as we can't decode them.
-#     labels = np.where(labels != -100, labels, tokenizer.pad_token_id)
-#     decoded_labels = tokenizer.batch_decode(labels, skip_special_tokens=True)
-    
-#     # Rouge expects a newline after each sentence
-#     decoded_preds = ["\n".join(nltk.sent_tokenize(pred.strip())) for pred in decoded_preds]
-#     decoded_labels = ["\n".join(nltk.sent_tokenize(label.strip())) for label in decoded_labels]
-    
-#     # Note that other metrics may not have a `use_aggregator` parameter
-#     # and thus will return a list, computing a metric for each sentence.
-#     result = metric.compute(predictions=decoded_preds, references=decoded_labels, use_stemmer=True, use_aggregator=True)
-#     # Extract a few results
-#     result = {key: value * 100 for key, value in result.items()}
-    
-#     # Add mean generated length
-#     prediction_lens = [np.count_nonzero(pred != tokenizer.pad_token_id) for pred in predictions]
-#     result["gen_len"] = np.mean(prediction_lens)
-    
-#     return {k: round(v, 4) for k, v in result.items()}
+factsumm = FactSumm()
+bleurt_scorer = BleurtScorer(checkpoint=checkpoint)
+summac_scorer = SummaCConv(models=["vitc"], bins='percentile', granularity="sentence",
+               nli_labels="e", device=device, start_file="default", agg="mean")
 
 
-def compute_metrics(tokenizer, document_texts_batch, summary_texts_batch, summary_texts_pred_batch, device):
+def compute_metrics_pipeline(articles, summaries):
+    qags_scores = []
+    rouge_scores = []
+    fact_scores = []
+    bleurt_scores = []
+    summac_scores = []
+    ensemble_scores = []
 
+    # try:
+    #     bleurt_scores = bleurt_scorer.score(references=articles, candidates=summaries)
+    # except Exception as ex:
+    #     # TODO: bad idea if only one fails out of all of them?
+    #     print(f"BLEURT ERROR! {ex}")
+    #     bleurt_scores = [0] * len(articles)
+    #
+    # try:
+    #     summac_scores = summac_scorer.score(articles, summaries)
+    # except Exception as ex:
+    #     print(f"SUMMAC ERROR! {ex}")
+    #     summac_scores = [0] * len(articles)
+
+    for i in range(len(articles)):
+        article, summary = articles[i], summaries[i]
+        try:
+            qags = factsumm.extract_qas(article, summary, device=device)
+        except TypeError:
+            # TODO: BIAS! Take care of this?
+            qags = 0
+        qags_scores.append(qags)
+
+        try:
+            rouge = factsumm.calculate_rouge(article, summary)[-1] # Take ROUGE-L
+        except Exception as ex:
+            print(f"ROUGE ERROR! {ex}")
+            rouge = 0
+        rouge_scores.append(rouge)
+
+        # Doesn't work, idk
+        # BERT = factsumm.calculate_bert_score(article, summary)
+
+        try:
+            facts = factsumm.extract_facts(article, summary, device=device)[-1]
+        except Exception as ex:
+            print(f"FACTS ERROR! {ex}")
+            facts = 0
+        fact_scores.append(facts)
+
+        references = [article]
+        candidates = [summary]
+        try:
+            bleurt_score = bleurt_scorer.score(references=references,
+                                               candidates=candidates)[0]
+        except Exception as ex:
+            print(f"BLEURT ERROR! {ex}")
+            bleurt_score = 0
+        bleurt_scores.append(bleurt_score)
+
+        try:
+            summac_score = summac_scorer.score(references, candidates)['scores'][0]
+        except Exception as ex:
+            print(f"SUMMAC ERROR! {ex}")
+            summac_score = 0
+        summac_scores.append(summac_score)
+
+        ensemble = np.mean([qags, rouge, facts, bleurt_score, summac_score])
+        ensemble_scores.append(ensemble)
+
+    # Calculate the average ensemble score over the batch
+    # batch_ensemble_score = np.mean(ensemble_scores)
+
+    return {
+        "qags": qags_scores,
+        "rouge": rouge_scores,
+        "triples": fact_scores,
+        # "BERT": BERT,
+        "bleurt": bleurt_scores,
+        "summac": summac_scores,
+        "ensemble": ensemble_scores,
+    }
+
+
+def compute_metrics(
+    tokenizer,
+    document_texts_batch,
+    summary_texts_batch,
+    summary_texts_pred_batch,
+    device,
+):
     num_samples = len(document_texts_batch)
     ensemble_scores = []
 
@@ -61,7 +125,7 @@ def compute_metrics(tokenizer, document_texts_batch, summary_texts_batch, summar
         article = document_texts_batch[i]
         summary_texts = summary_texts_batch[i]  # List of vocab IDs
         summary_pred_ids = summary_texts_pred_batch[i]  # List of vocab IDs
-        
+
         # PREDICTED
         # Decode the summary_ids and summary_pred_ids to text summaries
         summary_pred_text = tokenizer.decode(summary_pred_ids, skip_special_tokens=True)
@@ -73,26 +137,28 @@ def compute_metrics(tokenizer, document_texts_batch, summary_texts_batch, summar
         summary = summary_pred_text
 
         print_QA = False
-        
+
         print("device", device)
 
-        QA_based = factsumm.extract_qas(article, summary, verbose=print_QA) # device="cuda")
-        ROUGE = factsumm.calculate_rouge(article, summary) # device="cuda")
-        
+        QA_based = factsumm.extract_qas(article, summary)
+        ROUGE = factsumm.calculate_rouge(article, summary)
+        facts = factsumm.extract_facts(article, summary)
         # BERT = factsumm.calculate_bert_score(article, summary) #  device="cuda")
         BERT = 1
 
-        from transformers import pipeline
         # Load the BLEURT scorer model
         checkpoint = "../bleurt/BLEURT-20"
-        bleurt_scorer = pipeline(task="table-question-generation", model=checkpoint, device=device)
+        bleurt_scorer = pipeline(
+            task="table-question-generation", model=checkpoint, device=device
+        )
         # Define your reference and candidate sentences
         references = [summary_texts]
         candidates = [summary_pred_text]
         # Compute BLEURT scores for the candidates
         BLEURT = bleurt_scorer(references=references, candidates=candidates)
 
-        SUMMAC = model_conv.score([article], [summary],  device=device)
+        model_conv = SummaCConv(models=["vitc"], bins='percentile', granularity="sentence", nli_labels="e", device=device, start_file="default", agg="mean")
+        SUMMAC = model_conv.score([article], [summary], device=device)
 
         ensemble = np.mean([QA_based, ROUGE, BERT, BLEURT, SUMMAC])
 
@@ -104,8 +170,9 @@ def compute_metrics(tokenizer, document_texts_batch, summary_texts_batch, summar
     return {
         "QA_based": QA_based,
         "ROUGE": ROUGE,
+        "Triples": facts,
         "BERT": BERT,
         "BLEURT": BLEURT,
         "SUMMAC": SUMMAC,
-        "ensemble": batch_ensemble_score  # Return the average ensemble score
+        "ensemble": batch_ensemble_score,  # Return the average ensemble score
     }

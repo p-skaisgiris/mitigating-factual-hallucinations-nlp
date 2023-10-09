@@ -19,7 +19,6 @@ from metric.metrics import compute_metrics
 import nltk
 nltk.download('punkt')
 
-
 # rouge = evaluate.load("rouge")
 
 import numpy as np
@@ -30,9 +29,11 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
 
     # TODO: Data Parameters
+    parser.add_argument("--data_split", type=str, default="train[:]+validation[:]")  # train[:50]+validation[:1%]
 
     # TODO: Model Parameters
-    parser.add_argument("--model", choices=['t5-small','gpt-tiny', 'gpt-Neo', 'gpt2', 'PEGASUS', 'phi-1.5'], 
+    parser.add_argument("--model", 
+                        # choices=['google/t5-efficient-tiny, t5-small','gpt-tiny', 'gpt-Neo', 'gpt2', 'PEGASUS', 'phi-1.5'], 
                         default="t5-small", help='choose a model architecture')
     
     # Training Parameters
@@ -41,7 +42,7 @@ if __name__ == "__main__":
     parser.add_argument("--weight-decay", type=float, default=1e-5)
     parser.add_argument("--batch-size", type=int, default=16)
     parser.add_argument("--num-workers", type=int, default=8)
-    parser.add_argument("--epochs", type=int, default=1)
+    parser.add_argument("--epochs", type=int, default=30)
     parser.add_argument(
         "--device",
         type=str,
@@ -55,7 +56,7 @@ if __name__ == "__main__":
 
     # WandB Parameters
     parser.add_argument("--wandb-project", type=str, default="model-finetuning")
-    # parser.add_argument("--wandb-name", type=str, default="dl4nlp_group7")
+    parser.add_argument("--wandb-name", type=str, default="dl4nlp_group7")
     # parser.add_argument("--wandb-entity", type=str, default="-")
     parser.add_argument("--wandb-mode", type=str, default="online")  # disabled
     
@@ -88,20 +89,20 @@ if __name__ == "__main__":
         np.random.seed(seed)
         torch.manual_seed(seed)
         if torch.cuda.is_available():
+            
+            # device name
+            print(torch.cuda.get_device_name(torch.cuda.current_device()))
             torch.cuda.manual_seed(seed)
             torch.cuda.manual_seed_all(seed)
     set_seed(cfg.seed)
 
 
-    # from sklearn.model_selection import train_test_split
-
-
-    # dataset = XSUM()
-    # dataset = load_dataset("xsum",  split="train[:1%]")
-    dataset = load_dataset("xsum",  split="validation[:1%]")
+    dataset = load_dataset("xsum",  split=cfg.data_split)
 
     model, tokenizer = get_model_tok(cfg.model)
-
+    # model, tokenizer = get_model_tok('google/t5-efficient-tiny') #DON't use, will return empty summary
+    # model, tokenizer = get_model_tok('t5-small')
+    
     train_dataset, eval_dataset, data_collator = process_dataset(dataset, tokenizer, model)
     # tokenized_dataset, data_collator = process_dataset(dataset, tokenizer, model)
 
@@ -112,64 +113,32 @@ if __name__ == "__main__":
     if not os.path.exists(f"models/"):
         os.makedirs(f"models/")
     model_id = f"models/{cfg.model}_{ID}/"
+    
     training_args = Seq2SeqTrainingArguments(
         output_dir=f"{model_id}/",
-        evaluation_strategy="epoch",
         learning_rate=2e-5,
-        per_device_train_batch_size=10,
-        per_device_eval_batch_size=1,
+        per_device_train_batch_size=1   ,
+        # per_device_eval_batch_size=1,
         weight_decay=0.01,
-        save_total_limit=3,  # TODO Understand Param.
+        save_total_limit=3,  # TODO max saved checkpoints
         num_train_epochs=cfg.epochs,
         predict_with_generate=True,
+        evaluation_strategy="no", 
+        # evaluation_strategy="epoch",
+        do_eval=False,
         # fp16=True, only if cuda
         # push_to_hub=True,
         report_to="wandb",
     )
 
-    # torch.cuda.set_device(1)
-    print(torch.cuda.current_device())
-    
-    # print available devices
-    print("Available devices:")
-    print(torch.cuda.device_count())
-    print(torch.cuda.get_device_name(torch.cuda.current_device()))
-
-    # metric = load("rouge")
-    # def compute_metrics(eval_pred):
-    #     predictions, labels = eval_pred
-    #     decoded_preds = tokenizer.batch_decode(predictions, skip_special_tokens=True)
-    #     # Replace -100 in the labels as we can't decode them.
-    #     labels = np.where(labels != -100, labels, tokenizer.pad_token_id)
-    #     decoded_labels = tokenizer.batch_decode(labels, skip_special_tokens=True)
-        
-    #     # Rouge expects a newline after each sentence
-    #     decoded_preds = ["\n".join(nltk.sent_tokenize(pred.strip())) for pred in decoded_preds]
-    #     decoded_labels = ["\n".join(nltk.sent_tokenize(label.strip())) for label in decoded_labels]
-        
-    #     # Note that other metrics may not have a `use_aggregator` parameter
-    #     # and thus will return a list, computing a metric for each sentence.
-    #     result = metric.compute(predictions=decoded_preds, references=decoded_labels, use_stemmer=True, use_aggregator=True)
-    #     # Extract a few results
-    #     result = {key: value * 100 for key, value in result.items()}
-        
-    #     # Add mean generated length
-    #     prediction_lens = [np.count_nonzero(pred != tokenizer.pad_token_id) for pred in predictions]
-    #     result["gen_len"] = np.mean(prediction_lens)
-        
-    #     return {k: round(v, 4) for k, v in result.items()}
 
     trainer = Seq2SeqTrainer(
         model=model,
         args=training_args,
         train_dataset=train_dataset,
-        eval_dataset=eval_dataset,
+        # eval_dataset=eval_dataset,
         tokenizer=tokenizer,
         data_collator=data_collator,  # Use the same data collator for both train and eval
-        # compute_metrics=lambda pred: compute_metrics(pred, tokenizer, eval_dataset),
-        # compute_metrics=compute_metrics,  # Pass the compute_metrics function directly
-
-        # logger="wandb",
         # device=cfg.device,
     )
 
@@ -179,42 +148,66 @@ if __name__ == "__main__":
     # from factsumm import FactSumm
     # factsumm = FactSumm()
 
+    # remove memory torch
+    torch.cuda.empty_cache()
+
+    # number of eval per batch per epoch
+    NumberOfEvals = 30
+    
     print("-------- Start training --------")
     for epoch in range(training_args.num_train_epochs):
 
         print(f"-------- Epoch {epoch + 1} --------")
         trainer.train()
+        # log training loss wandb
+        # print("skipped training bc no gpu")
+        torch.cuda.empty_cache()
 
         print("-------- Start evaluation --------")        
-        # Perform evaluation during training
+         # Perform evaluation only for the first X examples
+        eval_dataset = eval_dataset.shuffle()
+                
         eval_results = trainer.predict(eval_dataset) # .evaluate() --> predict + compute metrics
 
+        torch.cuda.empty_cache()
         # Extract relevant information for custom metric computation
         document_texts = [example['document'] for example in eval_dataset]
         summary_texts = [example['summary'] for example in eval_dataset]
         summary_texts_pred = eval_results.predictions
 
         # Compute the custom metric using your function
-        custom_metric = compute_metrics(tokenizer, document_texts, summary_texts, summary_texts_pred, cfg.device)
-
+        custom_metric = compute_metrics(tokenizer, document_texts, summary_texts, 
+                                        summary_texts_pred, cfg.device, NumberOfEvals)
+        
+        print(custom_metric)
         print(f"Epoch {epoch + 1} - Custom Metric ensemble: {custom_metric['ensemble']}")
 
         # Log the custom metric to WandB
         for key, value in custom_metric.items():
+            key = f"eval_{key}_on_epoch"
             wandb.log({key: value})
+        torch.cuda.empty_cache()
 
+        # save model checkpoint with epoch number
+
+        trainer.save_model(f"models/{cfg.model}_{ID}/checkpoints/epoch_{epoch}/")
+        # Log the eval loss to WandB
+        
+        wandb.log({"eval_loss": eval_results.metrics['test_loss']})
+
+        # wandb.log({"eval_loss": eval_results.metrics["eval_loss"]}) DOES NOT WORK
+ 
+        
     wandb.finish()
-
-
 
     print("-------- Done training --------")
 
-    trainer.save_model(f"models/{cfg.model}/")
     # save training argument
     
     import pickle
     # Save the args object to a file using pickle
-    with open(f"models/{cfg.model}/args.pkl", "wb") as args_file:
+
+    with open(f"models/{cfg.model}_{ID}/args.pkl", "wb") as args_file:
         pickle.dump(cfg, args_file)
         
     print("-------- Done saving model & params. --------")
