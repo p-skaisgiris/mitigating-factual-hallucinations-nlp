@@ -3,6 +3,8 @@
 /metric/bleurt/bleurt/
 /models/
 /wandb/ 
+/metric/summac/summac/
+
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
