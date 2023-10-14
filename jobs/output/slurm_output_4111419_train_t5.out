@@ -1,0 +1,369 @@
+2023-10-11 19:26:11.757529: I tensorflow/core/util/port.cc:110] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2023-10-11 19:26:11.816176: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2023-10-11 19:26:12.915396: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2023-10-11 19:26:23.198518: W tensorflow/core/common_runtime/gpu/gpu_device.cc:1960] Cannot dlopen some GPU libraries. Please make sure the missing libraries mentioned above are installed properly if you would like to use GPU. Follow the guide at https://www.tensorflow.org/install/gpu for how to download and setup the required libraries for your platform.
+Skipping registering GPU devices...
+WARNING:datasets.builder:Found cached dataset xsum (/home/scur0666/.cache/huggingface/datasets/xsum/default/1.2.0/082863bf4754ee058a5b6f6525d0cb2b18eadb62c7b370b095d1364050a52b71)
+/home/scur0666/.conda/envs/DL4NLP/lib/python3.11/site-packages/transformers/models/t5/tokenization_t5_fast.py:155: FutureWarning: This tokenizer was incorrectly instantiated with a model max length of 512 which will be corrected in Transformers v5.
+For now, this behavior is kept to avoid breaking backwards compatibility when padding/encoding with `truncation is True`.
+- Be aware that you SHOULD NOT rely on t5-large automatically truncating your input to 512 when padding/encoding.
+- If you want to encode/pad to sequences longer than 512 you can either instantiate this tokenizer with `model_max_length` or pass `max_length` when encoding/padding.
+- To avoid this warning, please instantiate this tokenizer with `model_max_length` set to your preferred value.
+  warnings.warn(
+WARNING:datasets.arrow_dataset:Loading cached split indices for dataset at /home/scur0666/.cache/huggingface/datasets/xsum/default/1.2.0/082863bf4754ee058a5b6f6525d0cb2b18eadb62c7b370b095d1364050a52b71/cache-cb28695fbc0c5af7.arrow and /home/scur0666/.cache/huggingface/datasets/xsum/default/1.2.0/082863bf4754ee058a5b6f6525d0cb2b18eadb62c7b370b095d1364050a52b71/cache-4d5b51f626b26a3d.arrow
+WARNING:datasets.arrow_dataset:Loading cached processed dataset at /home/scur0666/.cache/huggingface/datasets/xsum/default/1.2.0/082863bf4754ee058a5b6f6525d0cb2b18eadb62c7b370b095d1364050a52b71/cache-d84a046c868aac7c.arrow
+WARNING:datasets.arrow_dataset:Loading cached processed dataset at /home/scur0666/.cache/huggingface/datasets/xsum/default/1.2.0/082863bf4754ee058a5b6f6525d0cb2b18eadb62c7b370b095d1364050a52b71/cache-ea81181efdbfae29.arrow
+WARNING:datasets.arrow_dataset:Loading cached shuffled indices for dataset at /home/scur0666/.cache/huggingface/datasets/xsum/default/1.2.0/082863bf4754ee058a5b6f6525d0cb2b18eadb62c7b370b095d1364050a52b71/cache-b1bed0d2e9b7473a.arrow
+WARNING:datasets.arrow_dataset:Loading cached shuffled indices for dataset at /home/scur0666/.cache/huggingface/datasets/xsum/default/1.2.0/082863bf4754ee058a5b6f6525d0cb2b18eadb62c7b370b095d1364050a52b71/cache-b0dbb3b688ec7559.arrow
+<All keys matched successfully>
+model t5-large
+Size of train set 172301
+Size of eval set 43076
+model_id id models/a_training/t5-large_2023_10_11_19_26/
+{'loss': 2.7685, 'learning_rate': 0.0, 'epoch': 1.0}
+{'train_runtime': 102.072, 'train_samples_per_second': 4.899, 'train_steps_per_second': 4.899, 'train_loss': 2.768519287109375, 'epoch': 1.0}
+eval 0
+article Many thousands of others have risked their lives this year, fleeing conflict and instability in Africa and the Middle East, in small, often decrepit vessels in an attempt to reach European territories.
+But the number of fatalities has risen dramatically in a matter of months. More than 2,200 lives have been lost since June, the UN refugee agency UNHCR believes.
+That is because of the big increase in numbers crossing the Mediterranean. While some 60,000 reached European shores in 2013, so far more than 130,000 have arrived in 2014.
+The majority of migrants head for Italy, prompting a crisis that the country's navy, coast guard and beleaguered immigration facilities are struggling to handle.
+Last October, 366 people died off the Italian island of Lampedusa when the fishing boat they were travelling in from Libya capsized.
+Nearly all the victims were Eritrean. Migrants crossing in the central Mediterranean - from Libya and Tunisia - have until recently come mostly from Eritrea and Somalia, although increasing numbers of Syrians fleeing the country's civil war are also making the journey.
+Libya has become a popular starting point for many journeys, with people traffickers exploiting the country's power vacuum and increasing lawlessness.
+The relatively short distance to Lampedusa encourages more people to risk the journey.
+Migration charities believe that as many as 20,000 people may have died at sea trying to reach Europe in the last two decades.
+Malta's prime minister warned after the Lampedusa tragedy that the Mediterranean was in danger of becoming of a "cemetery" for desperate migrants.
+'Age-old' issue
+The number of people using the various routes across the Mediterranean has ebbed and flowed.
+From 2008-2012, large numbers of migrants crossed between Turkey and Greece via the so-called Eastern Mediterranean route, border management agency Frontex reports.
+In response, Greece bolstered border controls with an additional 1,800 police officers.
+However, Frontex suggests that the area remains problematic, and points to "uncertainties related to the sustainability of [Greek] efforts, and evidence that migrants are waiting in Turkey for the end of the operation".
+Over the last decade, the central Mediterranean route has experienced periodic surges in migrant traffic.
+UNHCR figures suggest that some 25,000 people fled to Italy from North Africa in 2005, a number which dwindled to 9,573 in 2009.
+In 2011, this figure rocketed back to some 61,000, driven by the conflict in Libya which culminated in the downfall of Col Gaddafi.
+Earlier in the decade, the most popular route was from West Africa to Spain, including its North African territories of Ceuta and Melilla, and the Canary Islands, with some 32,000 irregular arrivals in 2006. This figure had dwindled to just 5,443 by 2011.
+summary Thousands of people have died trying to reach Europe by sea, many of them children.
+Loading Question Generation Pipeline...
+Loading Question Answering Pipeline...
+Loading Named Entity Recognition Pipeline...
+QAGS Score: 0.0
+
+Avg. ROUGE-1: 0.06280193236714977
+Avg. ROUGE-2: 0.016304347826086956
+Avg. ROUGE-L: 0.05797101449275362
+Loading Relation Extraction Pipeline...
+Fact Score: 0.0
+/gpfs/home1/scur0666/dl4nlp-text-summarization/metric/summac/summac/model_summac.py:295: UserWarning: Creating a tensor from a list of numpy.ndarrays is extremely slow. Please consider converting the list to a single numpy.ndarray with numpy.array() before converting to a tensor. (Triggered internally at ../torch/csrc/utils/tensor_new.cpp:245.)
+  histograms = torch.FloatTensor(histograms).to(self.device)
+eval 1
+article Full-back Halfpenny, 26, is out of contract with Toulon at the end of the season and is weighing up his options.
+Blues coach Danny Wilson says they cannot offer the highest wages but would be able to ensure Halfpenny is in "peak" condition for Wales.
+"The best interests of the player internationally would be at the front of our minds," said Wilson.
+Halfpenny, who made 87 appearances for the Blues between 2008 and 2014 , would be a strong contender for a national dual contract (NDC) if he returned to Wales after spending two years in France.
+The salary on such a deal would be funded 60% by the Welsh Rugby Union (WRU), with the region paying the rest.
+In return for the financial support, the regions agree to limit the number of appearances the player makes to suit the needs of the national side.
+Wilson believes the prospect of being managed in that way would be a major attraction for Halfpenny, whose career has been blighted by injury, including missing the recent Rugby World Cup.
+"The design of the central [NDC] contract is to get our best players playing and staying in Wales, and therefore the management of those players has to be a huge selling point," he said.
+"Between us and the strong relationship with the Welsh Rugby Union, the player gets the management he wants to peak and perform for Wales.
+"That's the idea of it and that has to be a selling point from a regional relationship. The other selling point we don't have is the same money as other people have to offer."
+Scarlets have also voiced their interest in the British and Irish Lion, while Premiership side Wasps have been strongly linked.
+Both are likely to be involved in the top tier of European competition next season, the Champions Cup, whereas the Blues are set to be in the second tier Challenge Cup.
+If Halfpenny wants to return to Wales, the binding agreement between the WRU and the Welsh regions gives the Blues first refusal as the region that developed him.
+"If Leigh does make a decision he wants to come back to Wales, I'd like to think Cardiff Blues would be high on his list of considerations," said Wilson.
+"I'd imagine all four regions would like to have Leigh Halfpenny playing for them.
+"A calibre of player like Leigh Halfpenny will have many options, whether that's regions, clubs over the bridge, clubs in France.
+"There are a number of players we are talking to - players we are in the process of finalising conversations with and we'll see how things pan out."
+summary Toulon have a new defender in the pipeline for the upcoming season.
+QAGS Score: 0.0
+
+Avg. ROUGE-1: 0.02158273381294964
+Avg. ROUGE-2: 0
+Avg. ROUGE-L: 0.02158273381294964
+Fact Score: 0.0
+eval 2
+article The claim: The UK can make itself energy self-sufficient in renewables.
+Reality Check verdict: This is not the policy in the Liberal Democrat manifesto, which pledges to get 60% of electricity from renewables by 2030. Being self-sufficient and having all energy coming from renewables would require considerable development of storage technology to avoid having to use non-renewable sources or energy bought from overseas as back-up sources.
+It came after he had said: "If it is simply for hair shirt, muesli-eating, Guardian readers to solve climate change... we're all stuffed."
+Becoming energy self-sufficient in renewables is not current Liberal Democrat policy, although Mr Farron described it in a speech in February as being a "patriotic endeavour".
+The manifesto says the party would: "Expand renewable energy, aiming to generate 60% of electricity from renewables by 2030."
+A party spokeswoman described the leader's statement in the debate as "visionary as opposed to completely literal".
+The problem with being entirely self-sufficient is that many renewable sources of energy cannot generate power all of the time (the notable exception being the burning of biomass), so if you are using a very high proportion of renewables you rely on interconnectedness (buying electricity from another country where the wind is blowing), storage (batteries in the short-term, some sort of gas storage in the longer term) or a back-up system using gas-fired power stations or nuclear energy.
+The Liberal Democrat manifesto talks about investing in interconnectors, which would be unnecessary if the country was to become self-sufficient.
+There are already private plans in place to increase the amount of electricity that may be bought from France via interconnectors.
+It may be that when he said self-sufficient he meant that we should not have a trade deficit in energy, so it would be OK to buy energy from other countries when we needed it as long as we sold the same amount to other countries when they needed it.
+While there have been suggestions that marine energy could make the UK a net exporter of electricity, being self-sufficient and generating 100% of energy from renewables is considerably more challenging than, for example, 90%, mainly because of the challenges of storage.
+The development of a smart grid, which co-ordinates renewable energy supplies depending on demand, may also be needed for a 100% renewable system.
+Also, while the Liberal Democrat manifesto targets 60% of electricity, Mr Farron was talking about all energy, which means, for example, that all cars have to run on renewable energy and all buildings have to be heated by it.
+So in 2016, the UK generated 24.4% of its electricity from renewables, but in 2015 (the latest year available) it was only producing 8.8% of energy from renewables.
+The UK has an obligation under European Union rules to derive 30% of electricity from renewables by 2020, which it is on the way to achieving (although the UK is currently scheduled to have left the EU by then). But the other two parts of the targets are 12% of heat and 10% of transport to be powered by renewables, which we are less likely to achieve.
+The Labour manifesto pledges to get 60% of energy from zero-carbon or renewable sources by 2030.
+The Conservative manifesto looks at it in a different way, saying that "energy policy should be focused on outcomes rather than the means by which we reach our objectives".
+So they say that the focus will not be on how the energy is generated but on achieving, "reliable and affordable energy, seizing the industrial opportunity that new technology presents and meeting our global commitments on climate change".
+The Green Party would have a target of near-100% renewable electricity generation by 2030 with significant investment in electric vehicles and lower-carbon sources of heating.
+It supports self-sufficiency and a decentralised system of communities owning their own generation systems, but would also invest in interconnectors to allow for co-operation with other countries.
+Read more from Reality Check
+Follow us on Twitter
+summary The claim: The UK can make itself energy self-sufficient in renewables.
+QAGS Score: 1.0
+
+Avg. ROUGE-1: 0.1648106904231626
+Avg. ROUGE-2: 0.034912718204488775
+Avg. ROUGE-L: 0.14253897550111358
+Fact Score: 0.0
+eval 3
+article That follows an admission by VW that it had found "irregularities" in carbon dioxide emissions levels that could affect 800,000 vehicles.
+It came to light as a result of an internal investigation by the firm following the diesel emissions scandal.
+The UK said it was "pressing VW to provide urgent clarity".
+On Tuesday, the company admitted that an internal investigation had revealed that carbon dioxide emissions and fuel consumption were understated during standards tests on about 800,000 cars.
+VW said the issue mainly affected diesel cars.
+However, on Wednesday Germany's Transport Minister Alexander Dobrindt told the country's parliament:
+"Today we were told that among the affected vehicles are 98,000 petrol vehicles".
+Meanwhile the UK's Department for Transport said it "takes the unacceptable actions of Volkswagen extremely seriously."
+"We are pressing VW to provide urgent clarity on the situation... This [CO2] development underlines the importance of the government's ongoing investigation to establish the extent to which defeat devices have been used," a spokesperson said.
+VW, Skoda, Audi and Seat vehicles could be affected and the company estimates the CO2 problem could cost it about €2bn (£1.4bn).
+VW had already set aside €6.7bn (£4.7bn) to meet the cost of the initial emissions scandal.
+News of the issue with carbon dioxide emissions sent VW shares down by 5.6% on Wednesday.
+The firm's shares have lost about a third of their value since September, when the scandal first broke.
+It came to light after the US Environmental Protection Agency found VW software had detected when vehicles were undergoing emissions tests, and altered the way they operated to give more favourable results.
+On Monday, US authorities also alleged that VW had fitted nitrogen oxide defeat devices on 3.0 litre diesel engines used in Porsche, Audi and VW vehicles - a claim VW denied.
+Porsche also denied the allegations, but its North American division announced it is discontinuing sales of Porsche Cayenne diesel sport utility vehicles until further notice.
+The carmaker is recalling 11 million diesel vehicles worldwide that were fitted with the software that circumvented tests for emissions of nitrogen oxide.
+That recall is for cars with variants of the EA 189 diesel engine built to the "Euro 5" emissions standard.
+Meanwhile. Volkswagen is recalling 92,000 cars in the US over a mechanical problem that could affect vehicles' brakes.
+The German carmaker said part of the camshaft could shear off, causing loss of vacuum in the power brakes, which could lengthen stopping distances.
+Wednesday's recall includes Beetle, Golf, Jetta and Passat models from 2015 and 2016. The cars have 1.8 litre and 2 litre turbocharged petrol engines.
+VW discovered the problem after getting reports of camshaft failures. A fix is expected by the end of March.
+summary VW has admitted it has found "irregularities" in carbon dioxide emissions levels
+QAGS Score: 1.0
+
+Avg. ROUGE-1: 0.125
+Avg. ROUGE-2: 0.043373493975903614
+Avg. ROUGE-L: 0.1163793103448276
+Fact Score: 0.0
+/home/scur0666/.conda/envs/DL4NLP/lib/python3.11/site-packages/transformers/pipelines/base.py:1090: UserWarning: You seem to be using the pipelines sequentially on GPU. In order to maximize efficiency please use a dataset
+  warnings.warn(
+eval 4
+article The US banking giant said net income in its corporate and investment banking division was $2.5bn, up $412m compared with the same period a year earlier.
+But it also reported an after-tax charge of $487m for legal expenses.
+And it set aside a total of $959m to cover bad loans, $109m higher than a year earlier.
+JPMorgan's legal expenses stem in part from the fact that it still faces an investigation by the US Justice Department into its involvement in the manipulation of foreign exchange markets.
+It also faces a probe into its hiring policy in Asia.
+Meanwhile, Wells Fargo, the largest mortgage lender in the US, reported a 2.6% fall in profits in the first three months of the year and set aside more money to cover bad loans.
+Net income was $5.46bn in the three months to the end of March ,compared with $5.61bn a  year earlier.
+The bank said it was setting aside $617m for credit losses an increase of $198m on the same three months a year earlier.
+JPMorgan said revenue from fixed-income bond trading rose 5% to $4.07bn, adjusted for the sale of businesses last year, including a commodities operation.
+"We have an outstanding franchise which is getting safer and stronger, and is gaining market share over time," said chief executive Jamie Dimon.
+"We continue to build the company for the long-term, we are investing in controls, infrastructure, systems, technology, new products and bankers."
+The bank said it was increasing its second quarter dividend from $0.40 to $0.44.
+JPMorgan's investment bank, along with its rivals, is under pressure to cut costs as customers have reduced their trading activity following the financial crisis.
+Regulators have also demanded that big banks take fewer risks, hold more capital and improve controls.
+The bank has said it wants to cut expenses by $2.8bn by 2017, excluding legal costs, though some of the savings are expected to be offset by more spending to improve risk controls.
+JPMorgan and Wells Fargo are the first of the large US banks to report quarterly results.
+Overall, results are expected to show that low interest rates have continued to hold down profits as consumers and businesses refinance loans at lower rates.
+summary US bank Citigroup has reported a record profit for the first quarter of the year, up
+QAGS Score: 0.3333333333333333
+
+Avg. ROUGE-1: 0.08823529411764705
+Avg. ROUGE-2: 0
+Avg. ROUGE-L: 0.08823529411764705
+Fact Score: 0.0
+eval 5
+article All the team's matches in France are heavily oversubscribed.
+More than 50,000 tickets have been applied for, but Northern Ireland's allocation is only 25,000 tickets for their three group games.
+The deadline for applications from Northern Ireland fans was 11:00 GMT on Monday.
+Northern Ireland play in Nice, Lyon and Paris and the ticket allocation is linked to the size of the stadium.
+The number of tickets Northern Ireland will receive is:
+Applicants will be notified of the results of their application in the next few weeks, no later than 29 February according to UEFA.
+The tickets will be allocated based on a priority system which takes into account the previous buying behaviour of Northern Ireland fans throughout qualifying.
+Further tickets for the games will go on general sale later this year but only a relatively small amount.
+About 800,000 tickets went on sale last month for fans of the 24 competing teams.
+The tournament takes place in June.
+summary Northern Ireland's allocation of tickets for the Euro 2016 qualifiers in France is only 25,000
+QAGS Score: 0.75
+
+Avg. ROUGE-1: 0.22702702702702704
+Avg. ROUGE-2: 0.08484848484848485
+Avg. ROUGE-L: 0.1837837837837838
+Fact Score: 1.0
+eval 6
+article Elsewhere there's some significant action on the committee corridor, with quite a collection of Cabinet ministers appearing before various committees.
+As the current crop of bills before Parliament peters out, the committee corridor may well become the focus of attention for the coming months, particularly with 30 select committee inquiries into various Brexit-related topics now under way.
+Here's my rundown of the week ahead:
+The Commons week begins (2.30pm) with Communities and Local Government questions - with any post-weekend ministerial statements or urgent questions following at 3.30pm.
+The main legislating is on the Digital Economy Bill, where there are some significant issues in play at report stage.
+The government has accepted an important amendment from the former minister Claire Perry, who had heavyweight cross party backing for her call to add powers to the bill allowing the government to make internet service providers block porn websites that failed to comply with a requirement for age verification for their viewers.
+The argument was that this was needed to give real teeth to the bill, and it has now been accepted by ministers, who're bringing in their own version of these powers, in a government amendment.
+Labour, though, have reservations about the new government proposal and may even vote against it. And they argue that the best defence for children is compulsory sex education, starting at Key Stage 1, and will be pushing an amendment to that effect.
+Watch out too for a Labour new clause, which seeks to create a procedure to deal with the growing problems of breaches of personal data security. This would create an obligation on data controllers to notify the Information Commissioner and those whose details had been compromised.
+Labour also want to add in new laws to combat ticket touts and they will also be opposing the clauses transferring the policy over free BBC licence fees for the over-75s to the BBC, on the argument that the Corporation is not the appropriate body to take decisions on welfare policy. They plan to force that issue to a vote.
+The Westminster Hall debate (4.30pm- 7.30pm) is on e-petition 162934 relating to child cancer - which calls on the government to make more funding available in the fight against child cancer.
+The debate will be led by the Conservative, Ben Howlett, who said the petition had been brought by a couple whose child sadly passed away after a battle with a very rare cancer. Childhood cancer is the biggest killer by disease of children in the western world and currently the survival rates vary considerably between different types of cancer, age and gender. He wants to urge the government to do more to look at the funding for both research and testing new drugs for childhood cancer as well as new awareness campaigns aimed at parents.
+Committee of the day is the Transport Committee hearing (4.05pm) on rail safety, which will ponder the issues around rising passenger numbers and problems, with the Rail Delivery Group, the Rail Safety and Standards Broad (RSSB) as well as the ASLEF, RMT and Unite trade unions.
+In the Lords (from 2.30pm) peers have another day debating the Pension Schemes Bill at committee stage - key issues include more on Master Trusts and on private pension scheme exit fees.
+And the Lib Dem peer, Lord Alderdice, leads a debate on ensuring parity of esteem between mental and physical health.
+The Commons opens (11.30am) with Treasury questions - followed by the day's Ten Minute Rule Bill which is on Statutory Nuisance (Aircraft Noise) -  fresh from a Westminster Hall debate on this issue, Dr Tania Mathias, whose constituency lies under the Heathrow flightpath, takes her battle against a third runway to the floor of the Commons chamber.
+That is followed by the second reading of the Commonwealth Development Corporation Bill - a two-clause micro-measure which will raise the limit on government financial assistance that can be provided to CDC Group (formerly the Commonwealth Development Corporation) (the "CDC") to Â£6bn.
+This could be a micro-second reading debate as well - leaving time for opposed private business - a number of private bills (bills dealing with a private interest) have popped up from time to time, for formal approval, only to be pulled when backbench vigilantes like Christopher Chope threaten to object to them. The aim of these challengers it to get the measures debated - and this may now occur.
+In Westminster Hall, my eye was caught by the debate led by Plaid Cymru's Liz Saville Roberts, on CCTV in equine slaughterhouses (2.30pm-4pm).
+My committee pick is the Justice Committee hearing (9.45pm) with Prisons Minister Sam Gyimah and Michael Spurr, Chief Executive of the National Offender Management Service. The current state of the prison system can hardly be avoided. Unusually this inquiry begins, rather than ends with a hearing with a minister - and its focus could well branch out in several directions, as the hearings continue.
+Health Secretary Jeremy Hunt, Public Health England and NHS officials give evidence to the Health Committee on suicide prevention and whether there is sufficient support for mental health in the NHS (2.30pm).
+And there's an interesting in-house encounter - the Standards Committee hearing (10am) on the MPs' Code of Conduct and Guide to the Rules. The witnesses include the MPs' main shop stewards: Graham Brady,  Chair of the Conservative backbench 1922 Committee; John Cryer, Chair of the Parliamentary Labour Party, and Angus Robertson, Deputy Leader of the SNP; plus Bernard Jenkin, Chair of the Public Administration and Constitutional Affairs Committee; Dr Sarah Wollaston, Chair of the Health Committee, and backbench standards crusader, John Mann, one of the most active complainants on standards issues (at 10.50am).
+In the Lords (2.30pm) the main debate is on the economy, in the light of the Autumn Statement.
+The Commons opens (11.30am) with half an hour of Welsh questions, followed at noon by PMQs.
+Then, the Labour MP Justin Madders proposes a Ten Minute Rule Bill to make it easier for young people to go to games; his Football Supporters (Access) Bill deals with ticket prices and kick off times and calls for a proportion of transfer fees to be earmarked to develop facilities for local clubs and young people.
+The day's main debate will be on an SNP motion - subject to be announced - and there's an intriguing looking adjournment debate from the SNP's Gavin Newlands, on Paisley's cultural contribution to the world.
+And Work and Pensions Secretary Damian Green will be questioned (9.30am) by the Work and Pensions Committee about his department's finances, after the cash injection in the Autumn Statement.
+My other committee pick is Transport Secretary Chris Grayling's appearance before the Environmental Audit Committee (2.20pm), to talk about the environmental concerns around Heathrow expansion and the plans to mitigate air pollution, carbon emissions and noise from a new runway.
+In the Lords (3pm) the main legislation is the first report stage day on the Policing and Crime Bill - this measure will probably provide the Lords' last serious legislative clashes of 2016.
+There are some big issues to be fought out.
+First, behind the scenes negotiations are under way to find a compromise on the provision for Police and Crime Commissioner to take over the fire and rescue authority for their area. Labour have an amendment down to delete this entire section of the bill (Clause 6), but could well be dissuaded if the government is prepared to offer stricter requirements for local consultation on such proposals - and a new government amendment on this issue has now appeared.
+Compromise is less likely on Labour amendments to prevent Special Constables using CS gas and PAVA sprays, and this may be forced to a vote. There will also be an amendment on restriction on the use of police cells for those with mental health conditions
+But the biggest clash may be over an attempt to add in a requirement to hold a Leveson 2-style inquiry into relations between the police and the media - as I write, no amendment has appeared but one is expected, probably fronted by a crossbench peer, but with substantial cross party support.
+If passed it would probably occasion an awkward bout of parliamentary ping-pong between Lords and Commons. And there will be plenty more controversial amendments on the next day of report stage...
+As ever, on report stage days in the Lords, timing is important, and opposition amendments usually stand less chance if they're debated after the dinner break, when a lot of peers go home.
+There will also be a short debate on current UK political strategy towards and plans to develop economic, security and cultural relations with Tunisia.
+The Commons opens (9.30am) with Exiting the European Union questions, followed by the weekly Business Statement from the Leader of the House, David Lidington, setting out what will be on the Commons agenda in the coming weeks.
+The day's main debates are on subjects chosen by the Backbench Business Committee. First is a debate on a motion on transgender equality: Maria Miller, Angela Crawley which will follow up on the first report of the Women and Equalities Select Committee, which looked at this issue.
+That's followed by a general debate on the future of the UK fishing industry. An annual fisheries debate used to be a fixture of the parliamentary calendar, but since the creation of the Backbench Business Committee, the subject has had to take its chances along with many others.
+In the Lords (11am) the main debates are on options for the UK's future relationship with the EU following the referendum - led by Lord Liddle, Tony Blair's former EU advisor, and on challenges in the current system of social care, proposals for reviewing and longer-term reform - led by Labour's Baroness Pitkeathley, a former chief executive of Carers National Association (now Carers UK).
+The final debate is on the EU net-neutrality Connected Continent requirements, UK adult content filtering regimes and keeping children safe online.
+It's private members' bills day in the Commons (9.30am) and first up is the second reading of the SNP MP Mhairi Black's Benefit Claimants Sanctions (Required Assessment) Bill, which aims to build new safeguards into the system under which claimants can be "fined" if they fail, for example, to attend a job interview.
+She wants the system to take into account any caring or childcare responsibilities, the mental and physical health of the claimant and their housing situation, and to ensure that any claimants who are sanctioned are made aware of any emergency funding they could access. Expect a strong turnout of SNP MPs, but there is little sign of support from the government.
+Then comes the Vehicle Noise Limits (Enforcement) Bill - from the Conservative, Kevin Foster. The bill would allow noise limits to be enforced via automatic monitoring equipment.
+Further down the agenda lurks Ruth Cadbury's Income Tax (Non-Military Expenditure) Bill, which would require HMRC to record income tax revenue of people who say they have a 'conscientious objection' to public spending on defence purposes and to direct their taxes that would have been spent on the military to a 'non-military security fund'.
+As the third bill on the Order Paper, it has little chance of any extensive debate.
+In the Lords (10am) it's the annual Friday where the bishops get to debate the subject of their choice.
+The Archbishop of Canterbury, Justin Welby, leads a debate on the "Shared values underpinning our national life and their role in shaping public policy priorities".
+Archbishop Welby has had some pretty interesting things to say on this subject - a few extracts from a recent speech give a flavour of the ground he may cover:
+"It is imperative that we remind the nation that our values have not emerged within a secular vacuum; but from the resilient and eternal structure of our Judeo-Christian theological, philosophical and ethical heritage. ....The right to life, liberty and the rule of law and robust democratic government does not come cheaply, nor is it held lightly. The roots of our freedom in this country are deeply embedded within our British constitutional and civic life because their foundation lies within the shared scriptural inheritance of our faith traditions.....Democracy is not in and of itself the final answer to things, nor is the rule of law. Martin Luther King did not accept the final authority of the rule of law when the law is unjust. Quite rightly, Bonhoeffer in the 1930s did not accept the final authority of the rule of law when the law was palpably racist, unjust and anti-Semitic. That's one of the reasons he ended up going to the gallows. As for tolerance, it's a word like 'nice', isn't it? Completely meaningless and overused. Respect is something else - I won't go there.....Our understanding of the rights and responsibilities that flow from our God-given inheritance as human beings, enable us - Jewish and Christian communities together - to be powerful and compelling advocates for freedom in British society.
+"The cutting edge of freedom must include the right to disagree, disengage and dissent. It means the freedom of others to criticise us or our views, or for those of us who hold beliefs strongly to change our minds or our beliefs. It means that we all need to be accountable to one another before God and we all need to affirm the right of others to not believe as we do. What it doesn't mean is freedom without accountability to undermine each other's faith, whether casually, incidentally or wilfully. What it cannot mean is the freedom to use language destructively and negatively about those who are different to us - or who take opinions and views with which we profoundly disagree. We have had egregious examples of that in recent weeks, aimed at our judiciary. And what it must never mean is the denial of others to practise or not practise their understanding of their religious or secular identity."
+summary The House of Commons is set to hear a number of bills on the weekend, including
+QAGS Score: 0.0
+
+Avg. ROUGE-1: 0.014428412874583794
+Avg. ROUGE-2: 0
+Avg. ROUGE-L: 0.013318534961154276
+Fact Score: 0.0
+eval 7
+article The Co Wicklow fighter beat Victoria Torres of Mexico on a unanimous decision to make the semi-finals.
+All four semi-finalists in Kazakhstan qualify for August's Olympics.
+Middleweight Savannah Marshall became the 10th British boxer to book a place in Brazil by outpointing Chinese third seed Li Qian in her quarter-final bout.
+Taylor, 29, who is guaranteed at least a bronze medal, impressed in Tuesday's quarter-final with a clinical display and is aiming for a sixth world title.
+The Bray boxer beat Agnes Alexiusson of Sweden and Argentina's Dayana Sanchez in Astana before prevailing against Torres over four rounds.
+Taylor was surprisingly beaten in the Olympic qualifier in Turkey last month.
+Azerbaijan's Yana Alekseevna handed Taylor her first defeat in five years at the European Olympic qualifiers to leave the five-time world champion still seeking Rio qualification.
+Alekseevna's victory in Samsun was Taylor's first defeat in 63 contests.
+Meanwhile, Marshall, 25, will next face Dutch fighter Nouchka Fontijn for a place in the final.
+Compatriot Nicola Adams kept on track for the first world gold of her career as she squeezed through against Yu-Ting Lin of Chinese Taipei in their flyweight bout.
+Adams, who has already qualified for the Olympics, goes up against home favourite Ahaina Shekerbekova on Thursday, and knows she will not have to fight big rival Ren Cancan, who withdrew with food poisoning.
+Great Britain's Sandy Ryan missed out on a world medal in the non-Olympic light-welterweight division as she lost on a unanimous decision to China's Wenlu Yang.
+summary The Irish women's boxing team have reached the semi-finals of the World Box
+QAGS Score: 0.0
+
+Avg. ROUGE-1: 0.05343511450381679
+Avg. ROUGE-2: 0.008403361344537816
+Avg. ROUGE-L: 0.05343511450381679
+Fact Score: 0.0
+eval 8
+article West Midlands Police outlined the measures - which will mainly affect community support officers - as part of its efforts to save ??130m.
+Police and Crime Commissioner David Jamieson said further cuts of up to ??30m were likely to follow.
+The Home Office said crime was down 16% in the region.
+West Midlands Chief Constable Chris Sims said: "We will continue to offer the protection we currently offer but people will notice the service is delivered differently.
+"There will be less visibility on the streets, fewer bobbies on the beat."
+Shale Ahmed from the Aspire and Succeed Youth Centre in Lozells said the changes could be "devastating".
+"For a neighbourhood like this, it's about community safety," he said.
+Ravi Subramanian, from the union Unison, which represents some police staff, said the service had already suffered job losses. "This further reduction will mean a scaling back of neighbourhood policing."
+Mr Jamieson said: "The West Midlands has seen 24% cuts - that isn't right.
+"Last week we heard there could be another ??20-30m cuts on top of this. What we cannot do is do what we were doing before.
+"We are going to lose up to half of our budget by 2020.
+"What people must realise is that government austerity could have a severe effect on the quality of policing.
+"It's going to be policing without frills. I'm afraid it could be like some of the European forces, where it's just response policing and the other excellent work our police do could be seriously diluted."
+However, the Home Office said: "There is no question that the police still have the resources to do their important work.
+"What matters is how officers are deployed, not how many of them there are in total.
+summary West Midlands Police has announced a series of measures to cut costs.
+QAGS Score: 1.0
+
+Avg. ROUGE-1: 0.08540925266903913
+Avg. ROUGE-2: 0.03305785123966942
+Avg. ROUGE-L: 0.08540925266903913
+Fact Score: 0.0
+eval 9
+article The SNP said the Ipsos Mori survey for STV was a "sensational" endorsement.
+The poll also indicated that the Nationalists would win next May's Holyrood election with 74 seats.
+Scottish Labour said it was focusing on what mattered and the Scottish Tories said they would continue to make a positive case for the UK.
+The survey, which questioned 1,002 people last week, comes almost a year after Scotland rejected independence by a margin of 55% to 45%.
+It is thought to be the first poll to show a majority for "Yes" among all those questioned.
+Previous polls in the run-up to the September 2014 vote that showed a majority for independence had excluded those who were undecided.
+Half of those questioned for STV said they would like to see another referendum within five years while 58% said they would be in favour of having one in the next 10 years.
+Support for the SNP continues to be high in the wake of the party's landslide general election victory north of the border, winning 56 of Scotland's 59 Westminster seats.
+The poll found that 55% of those who gave a voting intention would back the Nationalists in the Scottish Parliament constituency vote if the election was held tomorrow.
+About a fifth (21%) would vote Labour, with support for the Tories at 12%, Liberal Democrats at 7% and Greens at 3%.
+In the list vote, SNP support fell to 50% and backing for the Greens rose to 8%, with the preferences for the other parties remaining the same.
+The SNP's business convener Derek Mackay said: "This is a sensational poll for the SNP - it shows not only that people across Scotland support us in huge and growing numbers eight years into government, but that they believe we have a strong record on key issues like health and education."
+He added: "It is welcome to see support for independence now stands at over 50 per cent, as people see the SNP in government and at Westminster stand up for Scotland."
+A Scottish Labour spokesman said that the party, under the new leadership of Kezia Dugdale, was changing.
+He added: "We want people to take another look at Scottish Labour.
+"But we know it's too early to be asking people for their votes.
+"Over the coming months, we will put Labour's values first and we will focus on the things that matter in people's lives - like the standards in our schools and our hospitals."
+The Scottish Conservative Party said it would "always stand up for" the two million people in Scotland who voted "No" in last year's referendum.
+A spokesman added: "For its part, rather than revelling in this poll, the SNP needs to focus on the day job.
+"While the Scottish government takes Scotland down the constitutional cul-de-sac, education standards have fallen and the police service set up by this SNP government just two years ago is facing breakdown.
+"Scotland needs a better way forward, not a step back to yet another referendum."
+The pollsters interviewed 1002 people between the 24 and 30 August.  The margin of error was plus or minus three.
+summary STV has backed the Scottish National Party's election campaign.
+QAGS Score: 0.0
+
+Avg. ROUGE-1: 0.06965174129353234
+Avg. ROUGE-2: 0
+Avg. ROUGE-L: 0.06965174129353234
+Fact Score: 0.0
+Avg. ROUGE-1: 0.25
+Avg. ROUGE-2: 0
+Avg. ROUGE-L: 0.25
+Avg. ROUGE-1: 0
+Avg. ROUGE-2: 0
+Avg. ROUGE-L: 0
+Avg. ROUGE-1: 0.3157894736842105
+Avg. ROUGE-2: 0.11764705882352941
+Avg. ROUGE-L: 0.3157894736842105
+Avg. ROUGE-1: 0.1904761904761905
+Avg. ROUGE-2: 0
+Avg. ROUGE-L: 0.1904761904761905
+Avg. ROUGE-1: 0.16666666666666666
+Avg. ROUGE-2: 0
+Avg. ROUGE-L: 0.16666666666666666
+Avg. ROUGE-1: 0.2608695652173913
+Avg. ROUGE-2: 0.09523809523809525
+Avg. ROUGE-L: 0.2608695652173913
+Avg. ROUGE-1: 0
+Avg. ROUGE-2: 0
+Avg. ROUGE-L: 0
+Avg. ROUGE-1: 0.08
+Avg. ROUGE-2: 0
+Avg. ROUGE-L: 0.08
+Avg. ROUGE-1: 0.1
+Avg. ROUGE-2: 0
+Avg. ROUGE-L: 0.1
+Avg. ROUGE-1: 0
+Avg. ROUGE-2: 0
+Avg. ROUGE-L: 0
+Traceback (most recent call last):
+  File "/gpfs/home1/scur0666/dl4nlp-text-summarization/train_without_wandb.py", line 146, in <module>
+    custom_metrics["classic_rouge1"].append(classic_rouge['classic_rouge1'])
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+KeyError: 'classic_rouge1'
+
+JOB STATISTICS
+==============
+Job ID: 4111419
+Cluster: snellius
+User/Group: scur0666/scur0666
+State: FAILED (exit code 1)
+Nodes: 1
+Cores per node: 18
+CPU Utilized: 00:05:59
+CPU Efficiency: 7.23% of 01:22:48 core-walltime
+Job Wall-clock time: 00:04:36
+Memory Utilized: 10.81 GB
+Memory Efficiency: 11.07% of 97.66 GB

@@ -15,7 +15,7 @@ from evaluate import load
 import evaluate
 
 import os
-from metric.metrics import compute_metrics
+from metric.metrics import compute_metrics, compute_metrics_pipeline
 import nltk
 nltk.download('punkt')
 
@@ -29,6 +29,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
 
     # TODO: Data Parameters
+    # parser.add_argument("--data_split", type=str, default="train[:]+validation[:]")  # train[:50]+validation[:1%]
     parser.add_argument("--data_split", type=str, default="train[:]+validation[:]")  # train[:50]+validation[:1%]
 
     # TODO: Model Parameters
@@ -128,19 +129,18 @@ if __name__ == "__main__":
         do_eval=False,
         # fp16=True, only if cuda
         # push_to_hub=True,
-        report_to="wandb",
+        # report_to=["wandb"],
     )
 
-
-    trainer = Seq2SeqTrainer(
-        model=model,
-        args=training_args,
-        train_dataset=train_dataset,
-        # eval_dataset=eval_dataset,
-        tokenizer=tokenizer,
-        data_collator=data_collator,  # Use the same data collator for both train and eval
-        # device=cfg.device,
-    )
+    # trainer = Seq2SeqTrainer(
+    #     model=model,
+    #     args=training_args,
+    #     train_dataset=train_dataset,
+    #     # eval_dataset=eval_dataset,
+    #     tokenizer=tokenizer,
+    #     data_collator=data_collator,  # Use the same data collator for both train and eval
+    #     # device=cfg.device,
+    # )
 
     # print("trainer.model.device: ", trainer.device)
 
@@ -152,15 +152,36 @@ if __name__ == "__main__":
     torch.cuda.empty_cache()
 
     # number of eval per batch per epoch
-    NumberOfEvals = 30
+    NumberOfEvals = 15
     
     print("-------- Start training --------")
     for epoch in range(training_args.num_train_epochs):
 
         print(f"-------- Epoch {epoch + 1} --------")
-        trainer.train()
-        # log training loss wandb
-        # print("skipped training bc no gpu")
+
+        # Shuffle the entire training dataset to ensure randomness
+        shuffled_dataset = train_dataset.shuffle(seed=epoch)  # Use 'epoch' as the seed for reproducibility
+        
+        # Determine the size of the subset (e.g., 10% of the data)
+        subset_size = int(0.01 * len(dataset))
+
+        subset_size = int(200)
+        print(f"subset_size: {subset_size}")
+        
+        # Create a subset of the shuffled training data
+        train_subset = shuffled_dataset.select([i for i in range(subset_size)])
+        
+        # Define the trainer with the current training subset
+        trainer = Seq2SeqTrainer(
+            model=model,
+            args=training_args,
+            train_dataset=train_subset,
+            tokenizer=tokenizer,
+            data_collator=data_collator,
+        )
+        
+        # Perform training on the current subset
+        # trainer.train()
         torch.cuda.empty_cache()
 
         print("-------- Start evaluation --------")        
@@ -176,15 +197,22 @@ if __name__ == "__main__":
         summary_texts_pred = eval_results.predictions
 
         # Compute the custom metric using your function
-        custom_metric = compute_metrics(tokenizer, document_texts, summary_texts, 
-                                        summary_texts_pred, cfg.device, NumberOfEvals)
+        custom_metric = compute_metrics_pipeline(articles=document_texts, 
+                                                 summaries=summary_texts_pred)
+
+   
+        # custom_metric = compute_metrics(tokenizer, document_texts, summary_texts, 
+        #                                 summary_texts_pred, cfg.device, NumberOfEvals)
         
         print(custom_metric)
         print(f"Epoch {epoch + 1} - Custom Metric ensemble: {custom_metric['ensemble']}")
 
+        wandb.log(custom_metric)
+
         # Log the custom metric to WandB
         for key, value in custom_metric.items():
             key = f"eval_{key}_on_epoch"
+            print(key, value)
             wandb.log({key: value})
         torch.cuda.empty_cache()
 

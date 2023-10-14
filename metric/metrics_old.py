@@ -67,21 +67,7 @@ def compute_metrics(tokenizer, document_texts_batch, summary_texts_batch,
         torch.cuda.empty_cache()
 
         BERT, BLEURT = 0, 0
-        # BERT = factsumm.calculate_bert_score(article, summary)
-        print("BERT", BERT)
-        # torch.cuda.empty_cache()
-        # F1, Precsion, Recall
-        # from bleurt import score
-        # import os
-        # # check in model for BLEURT-20-D3 or BLEURT-20    
-        # if os.path.exists("metric/bleurt/bleurt/BLEURT-20-D3/"):
-        #     checkpoint = "metric/bleurt/bleurt/BLEURT-20-D3/"
-        # else:
-        #     checkpoint = "metric/bleurt/bleurt/BLEURT-20/"
-        # scorer = score.BleurtScorer(checkpoint)
-        # BLEURT = scorer.score(references=[article], candidates=[summary])
-        # print("BLEURT", BLEURT)
-        # torch.cuda.empty_cache()
+      
 
         torch.cuda.empty_cache()
         model_conv = SummaCConv(models=["vitc"], bins='percentile', granularity="sentence", nli_labels="e", device=device, start_file="default", agg="mean")

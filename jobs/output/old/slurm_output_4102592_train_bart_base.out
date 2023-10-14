@@ -1,0 +1,326 @@
+2023-10-11 12:55:57.293690: I tensorflow/core/util/port.cc:110] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2023-10-11 12:55:57.566672: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2023-10-11 12:56:00.118502: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2023-10-11 12:56:15.602969: W tensorflow/core/common_runtime/gpu/gpu_device.cc:1960] Cannot dlopen some GPU libraries. Please make sure the missing libraries mentioned above are installed properly if you would like to use GPU. Follow the guide at https://www.tensorflow.org/install/gpu for how to download and setup the required libraries for your platform.
+Skipping registering GPU devices...
+WARNING:datasets.builder:Found cached dataset xsum (/home/scur0666/.cache/huggingface/datasets/xsum/default/1.2.0/082863bf4754ee058a5b6f6525d0cb2b18eadb62c7b370b095d1364050a52b71)
+WARNING:datasets.arrow_dataset:Loading cached split indices for dataset at /home/scur0666/.cache/huggingface/datasets/xsum/default/1.2.0/082863bf4754ee058a5b6f6525d0cb2b18eadb62c7b370b095d1364050a52b71/cache-c3b6cea55862847e.arrow and /home/scur0666/.cache/huggingface/datasets/xsum/default/1.2.0/082863bf4754ee058a5b6f6525d0cb2b18eadb62c7b370b095d1364050a52b71/cache-8f3294831dcf7e73.arrow
+<All keys matched successfully>
+model facebook/bart-base
+Size of train set 5168
+Size of eval set 1293
+Map:   0%|          | 0/5168 [00:00<?, ? examples/s]Map:  19%|█▉        | 1000/5168 [00:01<00:07, 537.39 examples/s]Map:  39%|███▊      | 2000/5168 [00:03<00:05, 556.70 examples/s]Map:  58%|█████▊    | 3000/5168 [00:05<00:03, 561.36 examples/s]Map:  77%|███████▋  | 4000/5168 [00:07<00:02, 558.12 examples/s]Map:  97%|█████████▋| 5000/5168 [00:09<00:00, 550.99 examples/s]Map: 100%|██████████| 5168/5168 [00:09<00:00, 549.58 examples/s]                                                                Map:   0%|          | 0/1293 [00:00<?, ? examples/s]Map:  77%|███████▋  | 1000/1293 [00:01<00:00, 560.72 examples/s]Map: 100%|██████████| 1293/1293 [00:02<00:00, 545.07 examples/s]                                                                wandb: Currently logged in as: etatar-atdamen (ribfrac_team7). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.15.12 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.15.11
+wandb: Run data is saved locally in /gpfs/home1/scur0666/dl4nlp-text-summarization/wandb/run-20231011_125644-sg8ovqk2
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run silvery-haze-22
+wandb: ⭐️ View project at https://wandb.ai/ribfrac_team7/huggingface
+wandb: 🚀 View run at https://wandb.ai/ribfrac_team7/huggingface/runs/sg8ovqk2
+{'train_runtime': 11.8556, 'train_samples_per_second': 4.217, 'train_steps_per_second': 4.217, 'train_loss': 3.546458740234375, 'epoch': 1.0}
+eval 0
+article The four-part CGI animated mini-series will bring an original interpretation to Richard Adams' classic 1972 novel.
+It tells the story of a band of rabbits in search of a new home after the destruction of their warren.
+Commissioned by the BBC, it is the first blockbuster drama made as a co-production between the BBC and Netflix.
+The series will also feature the vocal talents of Olivia Colman, Nicholas Hoult , Miles Jupp, Freddie Fox, Anne-Marie Duff and Gemma Arterton, and will be written by Bafta-nominated Tom Bidwell.
+"Before there was Harry Potter, there was Watership Down," said the BBC's drama commissioning editor Matthew Read.
+"Richard Adams' novel is one of the most successful books of all time and one of the biggest selling books in history. It is fantastic to have the opportunity to bring a modern classic to a mainstream BBC One audience with such an incredible roster of actors alongside the talented team overseeing the animation."
+The book was first adapted for screen in 1978, and was notoriously frightening for young children, with its adored rabbit characters killed in graphic scenes.
+This version, the show's executive producer told the Telegraph, "will not just tone down the levels of on-screen violence to make it more appropriate for children, but give a boost to its female characters."
+The series is due to air on the BBC in 2017, and worldwide, outside of the UK, on Netflix.
+summary The four-part CGI animated mini-series will bring an original interpretation to Richard Adams
+Loading Question Generation Pipeline...
+Loading Question Answering Pipeline...
+Loading Named Entity Recognition Pipeline...
+QAGS Score: 0.5
+
+Avg. ROUGE-1: 0.14018691588785048
+Avg. ROUGE-2: 0.10204081632653061
+Avg. ROUGE-L: 0.13084112149532712
+Loading Relation Extraction Pipeline...
+Fact Score: 0.0
+/gpfs/home1/scur0666/dl4nlp-text-summarization/metric/summac/summac/model_summac.py:295: UserWarning: Creating a tensor from a list of numpy.ndarrays is extremely slow. Please consider converting the list to a single numpy.ndarray with numpy.array() before converting to a tensor. (Triggered internally at ../torch/csrc/utils/tensor_new.cpp:245.)
+  histograms = torch.FloatTensor(histograms).to(self.device)
+eval 1
+article EU judges said communications data could only be retained if it was used to fight serious crime.
+Its verdict came after a legal challenge to the UK government's surveillance legislation.
+The challenge was initially championed by Brexit Secretary David Davis, who was then a backbench Conservative MP.
+The Lib Dems said the ruling proved the government had "overstepped the mark" with its Data Retention and Investigatory Powers Act, branded the "snoopers' charter" by critics, which requires communications companies to retain data for 12 months.
+The ECJ has ruled that a "general and indiscriminate retention" of data is against EU law and can only be done under certain conditions and "solely for the purpose of fighting serious crime".
+Its ruling confirms a preliminary verdict in July. The case now returns to the UK Court of Appeal, which had referred the case to the ECJ for clarification.
+Mr Davis, who had long campaigned on civil liberties issues, left the case after Theresa May appointed him to her cabinet in July.
+Tom Watson, Labour's deputy leader, who is one of those bringing the case, said: "This ruling shows it's counter-productive to rush new laws through Parliament without a proper scrutiny."
+The Home Office said it would be putting forward "robust arguments" to the Court of Appeal.
+It added: "Given the importance of communications data to preventing and detecting crime, we will ensure plans are in place so that the police and other public authorities can continue to acquire such data in a way that is consistent with EU law and our obligation to protect the public."
+The government said it would not make any changes until the Court of Appeal had ruled on the legal challenge to the legislation.
+The term 'communications data' refers to details such as the time and date of a phone call being made or an email being sent - but not its contents.
+The Data Retention and Investigatory Powers Act expires at the end of December, and new legislation, the Investigatory Powers Act, is in place.
+Campaign group Liberty, which represented Mr Watson, said: "Today's judgment upholds the rights of ordinary British people not to have their personal lives spied on without good reason or an independent warrant.
+"The government must now make urgent changes to the Investigatory Powers Act to comply with this."
+summary The European Court of Human Rights has ruled that the UK should not be allowed to retain
+QAGS Score: 0.0
+
+Avg. ROUGE-1: 0.056074766355140186
+Avg. ROUGE-2: 0
+Avg. ROUGE-L: 0.04984423676012461
+Fact Score: 0.0
+eval 2
+article Tony Hall said he had "not taken this decision lightly" and recognised it would "divide opinion".
+However, he added "a line has been crossed" and he "cannot condone what has happened on this occasion".
+Clarkson was suspended on 10 March, following what was called a "fracas" with Top Gear producer Oisin Tymon.
+The row, which took place in a Yorkshire hotel, was said to have occurred because no hot food was provided following a day's filming.
+An internal investigation began last week, led by Ken MacQuarrie, the director of BBC Scotland.
+It found that Mr Tymon took himself to hospital after he was subject to an "unprovoked physical and verbal attack".
+"During the physical attack Oisin Tymon was struck, resulting in swelling and bleeding to his lip."
+It lasted "around 30 seconds and was halted by the intervention of a witness," Mr MacQuarrie noted in his report.
+"The verbal abuse was sustained over a longer period" and "contained the strongest expletives and threats to sack" Mr Tymon, who believed he had lost his job.
+Mr Tymon did not file a formal complaint and it is understood Clarkson reported himself to BBC bosses following the incident.
+After that, the BBC's director of television, Danny Cohen, felt he had no choice but to suspend the presenter pending an investigation.
+The decision caused an outpouring of support from Top Gear fans, with more than a million people signing an online petition to reinstate him.
+Announcing his decision, Lord Hall said Clarkson's dismissal was unavoidable.
+"For me a line has been crossed. There cannot be one rule for one and one rule for another dictated by either rank, or public relations and commercial considerations."
+However, he added: "This decision should in no way detract from the extraordinary contribution that Jeremy Clarkson has made to the BBC. I have always personally been a great fan of his work and Top Gear."
+In a statement, Mr Tymon thanked the BBC for a "thorough and swift investigation into this very regrettable incident".
+"I've worked on Top Gear for almost a decade, a programme I love," he continued.
+"Over that time Jeremy and I had a positive and successful working relationship, making some landmark projects together. He is a unique talent and I am well aware that many will be sorry his involvement in the show should end in this way."
+North Yorkshire police have asked to see the BBC's internal report, saying it will be "assessed appropriately and action will be taken... where necessary".
+Responding to the news, Prime Minister David Cameron said he believed that "if you do something wrong at work there can be consequences" and that "aggressive and abusive behaviour is not acceptable in the workplace".
+Jeremy Clarkson took a slightly dull and failing car programme and turned it in to the biggest factual TV show in the world.
+But this sacking has nothing to do with style, opinions, popularity - or even his language on the show.
+It's about what stars are allowed to get away with off screen, a topic that's been top of the agenda for the BBC in recent months.
+The corporation has had to overhaul all of its policies and attitudes towards bullying and harassment, and a long verbal tirade and a physical assault would have crossed the line for any member of staff.
+Clarkson may be popular with the audience, and the BBC really did not want to lose him, but this was a star who admitted he was on his final warning and a corporation that was under intense scrutiny over what its top talent can and cannot get away with.
+Top Gear, which is one of BBC Two's most popular programmes, will continue without Clarkson, who will now become the subject of a bidding war by other broadcasters.
+The magazine show is one of the BBC's biggest properties, with overseas sales worth an estimated Â£50m a year for the corporation's commercial arm, BBC Worldwide.
+350 million
+Top Gear's estimated worldwide audience
+1977 Top Gear began as a local show on BBC Midlands
+170 plus episodes in its current format (since 2002)
+3 million YouTube subscribers
+1.7 million global circulation of Top Gear magazine
+Whether Clarkson's co-presenters James May and Richard Hammond will remain on the show has yet to be confirmed.
+All three had their contracts up for renewal this year, with Clarkson's due to expire at the end of March.
+Hammond tweeted: "Gutted at such a sad end to an era. We're all three of us idiots in our different ways but it's been an incredible ride together."
+May also updated his Twitter profile to say: "Former TV presenter".
+Lord Hall said he had asked BBC Two controller Kim Shillinglaw to handle "big challenge" of renewing Top Gear for 2016, and to investigate how the channel could broadcast the last three episodes of the current series, which were pulled when Clarkson was suspended.
+Meanwhile, Radio 2 DJ Chris Evans, has rubbished press speculation that he was to join the show.
+"Not only is it not true, it's absolute nonsense," he told his listeners on Wednesday morning.
+summary Tony Hall said he had "not taken this decision lightly" and recognised it would "
+QAGS Score: 1.0
+
+Avg. ROUGE-1: 0.0333889816360601
+Avg. ROUGE-2: 0.015414258188824664
+Avg. ROUGE-L: 0.030050083472454085
+Fact Score: 0.0
+/home/scur0666/.conda/envs/DL4NLP/lib/python3.11/site-packages/transformers/pipelines/base.py:1090: UserWarning: You seem to be using the pipelines sequentially on GPU. In order to maximize efficiency please use a dataset
+  warnings.warn(
+eval 3
+article Arron Banks, who funded the Leave-EU campaign, made the allegations in a new book called 'The Bad Boys of Brexit'.
+The party called the claims "entirely false".
+He claimed the DUP asked for £30,000 a month over four months to back his Leave.EU campaign.
+He alleged he told the DUP they must be "joking" and said he made it clear "that's not the way we operate."
+Mr Banks also claimed the DUP eventually got paid £50,000 a month for backing another campaign, Vote Leave.
+The DUP has strongly denied the claims by Mr Banks, who recently accompanied his friend Nigel Farage on his meeting with President-elect Donald Trump in New York
+They claimed Mr Banks had, indeed, offered them financial support if they changed which bidder they backed.
+"The party neither accepted money from Arron Banks nor changed its mind," it said.
+Vote Leave has also denied the allegations.
+The DUP claimed that if any other campaign had been the designated lead campaigner for leave, the referendum would have been lost.
+Mr Banks declined to give the BBC an interview.
+summary The Conservative party has denied the claims.
+QAGS Score: 0.0
+
+Avg. ROUGE-1: 0.08333333333333333
+Avg. ROUGE-2: 0.016393442622950817
+Avg. ROUGE-L: 0.08333333333333333
+Fact Score: 0.0
+eval 4
+article Mike Christie and Jonathan Ansell were attacked at a recreation ground in Yardley, Birmingham, during the early hours.
+Christie was hit over the head and Ansell received a blow to the eye as he wrestled back a stolen laptop.
+Both singers were treated at Heartlands Hospital but did not report the attack to police.
+Ansell and Christie were two of the original members of the group who rose to fame when they came second in the X Factor in 2004, losing to Steve Brookstein.
+On Twitter, Christie, 35, expressed his disbelief at the attack after the would-be thief ran off with his rucksack containing a laptop.
+Ansell, 34, said he realised crucial information relating to the group was on the laptop and chased and struck the mugger.
+He said the pair had gone out "at midnight-ish" to "barn-storm over ideas" and the plan had been to go to McDonalds.
+"All of a sudden I just heard Mike shout out an expletive and saw this figure running off with the rucksack," he said.
+"I instinctively chased after him and grabbed the bag and ended up with stars in my eyes after being punched in the face."
+He did not report the incident to police because they got their property back, he said.
+According to the group's Twitter feed G4 were in Birmingham on Sunday to appear at a wedding show.
+summary A man has died after being attacked by two men at a recreation ground in Yardley
+QAGS Score: 0.3333333333333333
+
+Avg. ROUGE-1: 0.04519774011299435
+Avg. ROUGE-2: 0.025806451612903222
+Avg. ROUGE-L: 0.04519774011299435
+Fact Score: 0.0
+eval 5
+article A joint committee of MPs and peers have been working on how best to implement what is carefully described as the "Restoration and Renewal" of the Victorian Palace of Westminster. The roofs leak, the windows leak, the members' cloakroom was flooded this week, there's asbestos, crumbling stonework, neolithic wiring, and enough fire hazards to pose a serious risk of what has been briefed to MPs as a "catastrophic event."
+The buzz in Westminster is that the Joint Committee will recommend a "total decant" from the Victorian section of the Parliamentary estate, for five or more years, probably starting in 2021, to allow the rebuilding to take place.
+It's no longer tenable to make running repairs during the long summer recess, and it is probably neither practical nor safe to try to close off one end of the building, and renovate in sections. Many parliamentarians had clung to the idea that they could keep one of the debating chambers open, and have the Commons meet there, while peers moved elsewhere.
+That option now seems to be unworkable. The estimated cost is already hovering in the Â£billions - and making elaborate efforts to conduct the work around in-situ MPs and peers would push that figure ever higher.
+The favoured solution, much canvassed around Parliament, is to take over neighbouring Richmond House, home of the Department of Health, and put up temporary debating chambers there, and relocate those MPs and peers with offices in the Victorian palaceâ€¦.
+It will be a wrench for some, and their anguish will doubtless dominate the debate about R&R. But there is another aspect: should the programme seek to do more than give Westminster watertight windows and functional wiring?
+This week, the parliamentary think tank, the Hansard Society held a discussion to highlight the opportunities to do much more. The restoration programme could make Parliament much more accessible to the public, both online and in person, and restructure the building to foster a more participatory and transparent democracy.
+The marginal cost of doing so, in the context of a multi-billion pound project, would not be vast - and it is also worth noting that whether Parliament remained there or not, the place would have to be restored; it's one of the four or five most recognisable buildings on the planet, and a World Heritage site.
+No-one is going to let it burn down or slide into the Thames.
+The ideas flew thick and fast, from panellists Geoff Mulgan of NESTA, Matthew Flinders from Sheffield University and Deborah Shaw, Head of Creative Programming and Interpretation at Historic  Royal Palaces: attach a museum of democracy to a living parliament; create a more accessible entrance, perhaps from a new complex in the centre of Parliament Square, through which the public could access the building; build a new and bigger venue for Westminster Hall debates, perhaps with a non-confrontational horse-shoe layout; roof over some of the internal courtyards to create new spaces for events open to the public, and, of course, build in the infrastructure to allow Parliament to use 21st Century technology in its work, and enhance public access.
+Deborah Shaw was particularly interesting on the opportunity to bring in artists to stage events like the poppy display at the Tower of London - events that captivated the public and increased public understanding of politics. (Incidentally, she's currently working on a event to evoke the destroyed Whitehall Palace, just up the road.)
+But many parliamentarians are instinctively wary. The Conservative Steve Brine, hardly a crusty old lag, feared that the process could end up with MPs being forces into "some ghastly glass horse-shoe".
+Others suspect that the simple fact of moving out of their historic chamber, and perhaps having to adapt to electronic voting, if their temporary home cannot accommodate their traditional voting lobbies, could produce a culture change, over five or more years. It would then be very hard to go back to the old ways, on their return.
+The new buildings for the Scottish Parliament and the Welsh Assembly were designed to express a constitutional change - the challenge of re-housing an ancient institution is rather different. But Churchill's dictum that we shape our buildings and then they shape us, could well play out when the new Westminster emerges from behind the scaffolding.
+summary A parliamentary committee of MPs and peers have been working on how best to implement what is
+QAGS Score: 0.0
+
+Avg. ROUGE-1: 0.06926406926406925
+Avg. ROUGE-2: 0.028846153846153844
+Avg. ROUGE-L: 0.06493506493506493
+Fact Score: 0.0
+eval 6
+article A search for her began on Sunday after a paper published an article about her alleged abduction, prompting a social media campaign demanding she be freed.
+Her family say she was abducted from the south in August by a man who forced her to convert to Islam before marrying her in the northern city of Kano.
+The man denies it was against her will.
+The alleged abduction has ignited the debate about child brides and forced marriages in Nigeria.
+The UN said more than one in three girls are married before the age of 18, mostly in poor rural families in Africa.
+The family say they have made several efforts to bring Ese back from Kano, some 900km (600 miles) away from her home in southern Bayelsa state, but were told she was no longer their daughter.
+There have been some 50,000 tweets using the hashtag #FreeEse since Sunday to put pressure on the authorities to rescue the girl.
+The alleged abductor of the girl was a long-standing customer of Ese's mother, who is a food vendor, reports the BBC's Chris Ewokor from the capital, Abuja.
+Prominent girls' rights activist and former World Bank Director Oby Ezekwesili and human rights campaigners have called for the prosecution of all those involved in the alleged kidnapping.
+More on child marriage
+There have been reports that the marriage took place at the palace of the Emir of Kano, Muhammadu Sanusi II, an influential Muslim leader in Nigeria.
+But he has vehemently denied this.
+The Emir said the girl was brought to his palace after her alleged conversion to Islam but he told the person to return her to her family because she was too young.
+"We asked that if he really wants her he should wait for her until she turns 18 and then if she still wants him they can get married. No-one will stand in the way," Mr Sanusi said in a statement.
+Meanwhile, Nigeria's Premium Times newspaper is reporting that the girl has said she wants to remain in Kano.
+She told police she was not forced to convert to Islam, it reports.
+In 2014, a 14-year-old girl used rat poison to kill a 35-year-old man she was forced to marry in the city.
+summary A British woman has been kidnapped from her home in northern Sweden, police said.
+QAGS Score: 0.0
+
+Avg. ROUGE-1: 0.020689655172413793
+Avg. ROUGE-2: 0
+Avg. ROUGE-L: 0.020689655172413793
+Fact Score: 0.0
+eval 7
+article Steele, 33, finished on 18 under par thanks to a seven-under 65, birdying the last three holes to beat overnight leader Patton Kizzire by a stroke.
+Casey, 39, tied for third on 16 under with Americans Michael Kim, Johnson Wagner and Scott Piercy.
+Scotland's Martin Laird and American Phil Mickelson finished on 14 under.
+We've launched a new BBC Sport newsletter, bringing all the best stories, features and video right to your inbox. You can sign up here.
+summary Sydney: Steele, 33, finished on 18 under par thanks to a seven
+QAGS Score: 0.8
+
+Avg. ROUGE-1: 0.16
+Avg. ROUGE-2: 0.12307692307692307
+Avg. ROUGE-L: 0.16
+Fact Score: 1.0
+eval 8
+article The singer met 13-year-old Shamsher Sherin at a Calais refugee camp last week and was so moved by his story that she apologised "on behalf of my country for what we've put you through".
+Shamsher is now with his father in Birmingham, according to translator Mohammad Ishaq, who is helping them.
+He was among dozens of child migrants brought to the UK on Wednesday.
+They will be joining their families and are among about 100 minors who will be brought over by the Home Office.
+More updates on this story and others in Birmingham
+During the interview with the pop star, Shamsher revealed he had been in the Calais refugee camp for two months after fleeing his home in Afghanistan.
+He said his father lived in Birmingham, giving him a legal right to make his way across the Channel.
+But he said it was better to make his way into the country on the back of a lorry because the legal process was too slow.
+He described one occasion when he was kicked and slapped by police after a failed attempt to get into the UK.
+Speaking to the BBC, he said he looked forward to starting a life in England and wanted to go to school.
+After watching the interview, his father Hazrat Gul Sherin, who fled Afghanistan in 2005 and now lives in Alum Rock, said he would hold his son close to his chest and embrace him as soon as they were reunited.
+Translator Mr Ishaq said he received a phone call on Thursday evening from Mr Sherin to say he was now with his son and he was "very happy".
+"He was so emotional... he wanted to thank the UK government... he said 'my dream is completed now'."
+After hearing the boy had crossed the border, Allen tweeted: "So happy to see that Sham Sher made it to the UK safely and won't be risking his life jumping on to moving vehicles."
+summary The singer met 13-year-old Shamsher Sherin at a Calais refugee
+QAGS Score: 1.0
+
+Avg. ROUGE-1: 0.11244979919678716
+Avg. ROUGE-2: 0.07239819004524888
+Avg. ROUGE-L: 0.11244979919678716
+Fact Score: 1.0
+eval 9
+article Graffiti was daubed and paint was thrown over walls at Tanvally and Corbet halls near Banbridge during the early hours of Friday morning. The halls are about five miles apart.
+The incidents follow an attempted arson attack at Muckery Orange Hall in County Armagh last weekend.
+The Orange Order said 12 of their halls have been targeted so far this year.
+A spokesman for the order said the attacks were "clearly coordinated and deliberate criminal acts" that did not reflect the "excellent community relations" in the areas.
+"The mindless morons responsible for such callous sectarianism ought to be ashamed of their actions and must be held accountable," the spokesman added.
+"This double attack is particularly sickening coming on the centenary of the Battle of the Somme.
+"Such cowardly crime is in stark contrast to the gallant bravery shown by those who paid the supreme sacrifice 100 years ago."
+summary A man has been arrested after graffiti was thrown over walls at Tanvally and Cor
+QAGS Score: 0.0
+
+Avg. ROUGE-1: 0.06060606060606061
+Avg. ROUGE-2: 0.034482758620689655
+Avg. ROUGE-L: 0.06060606060606061
+Fact Score: 0.0
+Avg. ROUGE-1: 0
+Avg. ROUGE-2: 0
+Avg. ROUGE-L: 0
+Avg. ROUGE-1: 0.3157894736842105
+Avg. ROUGE-2: 0.11764705882352941
+Avg. ROUGE-L: 0.2105263157894737
+Avg. ROUGE-1: 0
+Avg. ROUGE-2: 0
+Avg. ROUGE-L: 0
+Avg. ROUGE-1: 0.10526315789473685
+Avg. ROUGE-2: 0
+Avg. ROUGE-L: 0.10526315789473685
+Avg. ROUGE-1: 0
+Avg. ROUGE-2: 0
+Avg. ROUGE-L: 0
+Avg. ROUGE-1: 0.25
+Avg. ROUGE-2: 0.14285714285714285
+Avg. ROUGE-L: 0.25
+Avg. ROUGE-1: 0.10526315789473685
+Avg. ROUGE-2: 0
+Avg. ROUGE-L: 0.10526315789473685
+Avg. ROUGE-1: 0.09090909090909091
+Avg. ROUGE-2: 0
+Avg. ROUGE-L: 0.09090909090909091
+Avg. ROUGE-1: 0.1
+Avg. ROUGE-2: 0
+Avg. ROUGE-L: 0.1
+Avg. ROUGE-1: 0
+Avg. ROUGE-2: 0
+Avg. ROUGE-L: 0
+Traceback (most recent call last):
+  File "/gpfs/home1/scur0666/dl4nlp-text-summarization/train_without_wandb.py", line 135, in <module>
+    custom_metrics["rouge1"].append(classic_rouge['rouge1'])
+                                    ~~~~~~~~~~~~~^^^^^^^^^^
+KeyError: 'rouge1'
+wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
+wandb: 
+wandb: Run history:
+wandb:                    train/epoch ▁
+wandb:              train/global_step ▁
+wandb:               train/total_flos ▁
+wandb:               train/train_loss ▁
+wandb:            train/train_runtime ▁
+wandb: train/train_samples_per_second ▁
+wandb:   train/train_steps_per_second ▁
+wandb: 
+wandb: Run summary:
+wandb:                    train/epoch 1.0
+wandb:              train/global_step 50
+wandb:               train/total_flos 1250436096000.0
+wandb:               train/train_loss 3.54646
+wandb:            train/train_runtime 11.8556
+wandb: train/train_samples_per_second 4.217
+wandb:   train/train_steps_per_second 4.217
+wandb: 
+wandb: 🚀 View run silvery-haze-22 at: https://wandb.ai/ribfrac_team7/huggingface/runs/sg8ovqk2
+wandb: ️⚡ View job at https://wandb.ai/ribfrac_team7/huggingface/jobs/QXJ0aWZhY3RDb2xsZWN0aW9uOjEwNTg5MzkzMQ==/version_details/v3
+wandb: Synced 6 W&B file(s), 0 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20231011_125644-sg8ovqk2/logs
+
+JOB STATISTICS
+==============
+Job ID: 4102592
+Cluster: snellius
+User/Group: scur0666/scur0666
+State: RUNNING
+Nodes: 1
+Cores per node: 18
+CPU Utilized: 00:00:00
+CPU Efficiency: 0.00% of 00:45:36 core-walltime
+Job Wall-clock time: 00:02:32
+Memory Utilized: 0.00 MB (estimated maximum)
+Memory Efficiency: 0.00% of 97.66 GB (97.66 GB/node)
+WARNING: Efficiency statistics may be misleading for RUNNING jobs.

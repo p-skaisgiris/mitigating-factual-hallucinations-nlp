@@ -1,0 +1,148 @@
+2023-10-12 17:22:41.232294: I tensorflow/core/util/port.cc:110] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2023-10-12 17:22:41.704791: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2023-10-12 17:22:44.429618: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2023-10-12 17:23:01.327390: W tensorflow/core/common_runtime/gpu/gpu_device.cc:1960] Cannot dlopen some GPU libraries. Please make sure the missing libraries mentioned above are installed properly if you would like to use GPU. Follow the guide at https://www.tensorflow.org/install/gpu for how to download and setup the required libraries for your platform.
+Skipping registering GPU devices...
+<All keys matched successfully>
+article 1
+hallucinated_Summary 1
+Not_Hallucinated_Summary 1
+Not_Hallucinated_Summary_Len 1
+eval 0
+article The injured pedestrian - a young man - is thought to have been walking with a group of people from a graduation ceremony at the Caird Hall. The incident took place on High Street at about 18:00. The man's injuries are believed not to be life-threatening. The driver of the taxi is thought to be uninjured.
+summary During a Caird Hall graduation ceremony, a pedestrian accident on High Street at 18:00 left a young man and a taxi driver in critical condition.
+Loading Question Generation Pipeline...
+Loading Question Answering Pipeline...
+Loading Named Entity Recognition Pipeline...
+Answers based on SOURCE (Questions are generated from Summary)
+[Q] Where was the graduation ceremony held?     [Pred] Caird Hall
+[Q] On what street was a pedestrian accident at Caird Hall?     [Pred] High 
+Street
+[Q] At what time was the pedestrian accident on High Street?    [Pred] 18:00
+
+Answers based on SUMMARY (Questions are generated from Summary)
+[Q] Where was the graduation ceremony held?     [Pred] Caird Hall
+[Q] On what street was a pedestrian accident at Caird Hall?     [Pred] High 
+Street
+[Q] At what time was the pedestrian accident on High Street?    [Pred] 18:00
+
+QAGS Score: 1.0
+
+Avg. ROUGE-1: 0.29473684210526313
+Avg. ROUGE-2: 0.13793103448275862
+Avg. ROUGE-L: 0.1894736842105263
+Loading Relation Extraction Pipeline...
+SOURCE Entities
+1: [('the Caird Hall', 'FAC')]
+2: [('High Street', 'FAC'), ('18:00', 'TIME')]
+3: []
+4: []
+
+SUMMARY Entities
+1: [('Caird Hall', 'FAC'), ('High Street', 'FAC'), ('18:00', 'TIME')]
+
+SOURCE Facts
+
+SUMMARY Facts
+
+COMMON Facts
+
+DIFF Facts
+
+Fact Score: 0.0
+/gpfs/home1/scur0666/dl4nlp-text-summarization/metric/summac/summac/model_summac.py:295: UserWarning: Creating a tensor from a list of numpy.ndarrays is extremely slow. Please consider converting the list to a single numpy.ndarray with numpy.array() before converting to a tensor. (Triggered internally at ../torch/csrc/utils/tensor_new.cpp:245.)
+  histograms = torch.FloatTensor(histograms).to(self.device)
+eval 0
+article The injured pedestrian - a young man - is thought to have been walking with a group of people from a graduation ceremony at the Caird Hall. The incident took place on High Street at about 18:00. The man's injuries are believed not to be life-threatening. The driver of the taxi is thought to be uninjured.
+summary A pedestrian has been struck by a taxi in Dundee after it mounted the pavement.
+Answers based on SOURCE (Questions are generated from Summary)
+[Q] In what city was a pedestrian struck by a taxi?     [Pred] <unanswerable>
+
+Answers based on SUMMARY (Questions are generated from Summary)
+[Q] In what city was a pedestrian struck by a taxi?     [Pred] Dundee
+
+QAGS Score: 0.0
+
+Avg. ROUGE-1: 0.07843137254901962
+Avg. ROUGE-2: 0
+Avg. ROUGE-L: 0.07843137254901962
+SOURCE Entities
+1: [('the Caird Hall', 'FAC')]
+2: [('High Street', 'FAC'), ('18:00', 'TIME')]
+3: []
+4: []
+
+SUMMARY Entities
+1: [('Dundee', 'GPE')]
+
+SOURCE Facts
+
+SUMMARY Facts
+
+COMMON Facts
+
+DIFF Facts
+
+Fact Score: 0.0
+/home/scur0666/.conda/envs/DL4NLP/lib/python3.11/site-packages/transformers/pipelines/base.py:1090: UserWarning: You seem to be using the pipelines sequentially on GPU. In order to maximize efficiency please use a dataset
+  warnings.warn(
+eval 0
+article The injured pedestrian - a young man - is thought to have been walking with a group of people from a graduation ceremony at the Caird Hall. The incident took place on High Street at about 18:00. The man's injuries are believed not to be life-threatening. The driver of the taxi is thought to be uninjured.
+summary A young man, part of a group returning from a Caird Hall graduation ceremony, was injured on High Street around 18:00. His injuries are not life-threatening, and the taxi driver is uninjured.
+Answers based on SOURCE (Questions are generated from Summary)
+[Q] Where was the graduation ceremony held?     [Pred] Caird Hall
+[Q] On what street was a man injured?   [Pred] High Street
+[Q] When was the injured man on High Street?    [Pred] 18:00
+
+Answers based on SUMMARY (Questions are generated from Summary)
+[Q] Where was the graduation ceremony held?     [Pred] Caird Hall
+[Q] On what street was a man injured?   [Pred] High Street
+[Q] When was the injured man on High Street?    [Pred] 18:00
+
+QAGS Score: 1.0
+
+Avg. ROUGE-1: 0.35514018691588783
+Avg. ROUGE-2: 0.1414141414141414
+Avg. ROUGE-L: 0.2803738317757009
+SOURCE Entities
+1: [('the Caird Hall', 'FAC')]
+2: [('High Street', 'FAC'), ('18:00', 'TIME')]
+3: []
+4: []
+
+SUMMARY Entities
+1: [('Caird Hall', 'FAC'), ('High Street', 'FAC'), ('around 18:00', 'TIME')]
+2: []
+
+SOURCE Facts
+
+SUMMARY Facts
+
+COMMON Facts
+
+DIFF Facts
+
+Fact Score: 0.0
+custom_metric_hall {'qags': [1.0], 'rouge': [0.1894736842105263], 'triples': [0.0], 'bleurt': [0.48864006996154785], 'summac': [0.20364519953727722], 'ensemble': [0.37635179074187025]}
+custom_metric_not_hall {'qags': [0.0], 'rouge': [0.07843137254901962], 'triples': [0.0], 'bleurt': [0.2794886827468872], 'summac': [0.20364519953727722], 'ensemble': [0.1123130509666368]}
+custom_metric_not_hall_len {'qags': [1.0], 'rouge': [0.2803738317757009], 'triples': [0.0], 'bleurt': [0.6661350727081299], 'summac': [0.20584867894649506], 'ensemble': [0.43047151668606515]}
+Exception ignored in: <function AtomicFunction.__del__ at 0x14abe9f48f40>
+Traceback (most recent call last):
+  File "/home/scur0666/.conda/envs/DL4NLP/lib/python3.11/site-packages/tensorflow/python/eager/polymorphic_function/atomic_function.py", line 218, in __del__
+TypeError: 'NoneType' object is not subscriptable
+
+JOB STATISTICS
+==============
+Job ID: 4139050
+Cluster: snellius
+User/Group: scur0666/scur0666
+State: RUNNING
+Nodes: 1
+Cores per node: 18
+CPU Utilized: 00:00:00
+CPU Efficiency: 0.00% of 00:23:24 core-walltime
+Job Wall-clock time: 00:01:18
+Memory Utilized: 0.00 MB (estimated maximum)
+Memory Efficiency: 0.00% of 97.66 GB (97.66 GB/node)
+WARNING: Efficiency statistics may be misleading for RUNNING jobs.

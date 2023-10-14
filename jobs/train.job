@@ -1,13 +1,13 @@
 #!/bin/bash
 
 #SBATCH --partition=gpu
-#SBATCH --gpus-per-node=1
-#SBATCH --job-name=Bart_large60
+#SBATCH --gpus=1
+#SBATCH --job-name=train_t5
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=18
-#SBATCH --time=15:00:00
+#SBATCH --time=30:00:00
 #SBATCH --mem=100000M
-#SBATCH --output=jobs/output/slurm_output_%A_facebook_bart.out
+#SBATCH --output=output/slurm_output_%A_train_t5.out
 
 module purge
 module load 2022
@@ -18,6 +18,5 @@ source activate DL4NLP
 cd $HOME/dl4nlp-text-summarization/
 
 # python train.py --wandb-mode disabled --model facebook/bart-base
-# python train.py --model facebook/bart-base --epochs 60
-python train.py --model facebook/bart-large --epochs 60 
-# python train.py --model t5-small --epochs 10
+# python train_without_wandb.py --model facebook/bart-base --epochs 1  # Training for 20 'epoch runs'
+python train_without_wandb.py --model t5-large --epochs 1  # Training for 20 'epoch runs'

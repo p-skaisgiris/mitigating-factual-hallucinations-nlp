@@ -1,0 +1,48 @@
+Found cached dataset xsum (/home/scur0666/.cache/huggingface/datasets/xsum/default/1.2.0/082863bf4754ee058a5b6f6525d0cb2b18eadb62c7b370b095d1364050a52b71)
+2023-10-14 19:53:21.637971: I tensorflow/core/util/port.cc:110] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2023-10-14 19:53:21.971595: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2023-10-14 19:53:24.192059: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2023-10-14 19:53:38.027830: W tensorflow/core/common_runtime/gpu/gpu_device.cc:1960] Cannot dlopen some GPU libraries. Please make sure the missing libraries mentioned above are installed properly if you would like to use GPU. Follow the guide at https://www.tensorflow.org/install/gpu for how to download and setup the required libraries for your platform.
+Skipping registering GPU devices...
+WARNING:datasets.builder:Found cached dataset xsum (/home/scur0666/.cache/huggingface/datasets/xsum/default/1.2.0/082863bf4754ee058a5b6f6525d0cb2b18eadb62c7b370b095d1364050a52b71)
+Index(['bbcid', 'human_judgement', 'summary', 'document', 'dataset_index'], dtype='object')
+      bbcid  ...  dataset_index
+0  10138849  ...         6078.0
+1  11154244  ...        11313.0
+2  12402158  ...         1131.0
+3  13193011  ...         9877.0
+4  13569129  ...         2913.0
+
+[5 rows x 5 columns]
+2023_10_14_19_53
+      bbcid  human_judgement  ... summac ensemble
+0  10138849              0.0  ...   None     None
+1  11154244              0.0  ...   None     None
+2  12402158              0.0  ...   None     None
+3  13193011              0.0  ...   None     None
+4  13569129              0.0  ...   None     None
+
+[5 rows x 11 columns]
+(498, 11)
+<All keys matched successfully>
+Traceback (most recent call last):
+  File "/gpfs/home1/scur0666/dl4nlp-text-summarization/human_judgement.py", line 104, in <module>
+    if '/' in MODEL_NAME:
+              ^^^^^^^^^^
+NameError: name 'MODEL_NAME' is not defined
+
+JOB STATISTICS
+==============
+Job ID: 4179707
+Cluster: snellius
+User/Group: scur0666/scur0666
+State: RUNNING
+Nodes: 1
+Cores per node: 18
+CPU Utilized: 00:00:00
+CPU Efficiency: 0.00% of 00:13:30 core-walltime
+Job Wall-clock time: 00:00:45
+Memory Utilized: 0.00 MB (estimated maximum)
+Memory Efficiency: 0.00% of 37.11 GB (37.11 GB/node)
+WARNING: Efficiency statistics may be misleading for RUNNING jobs.

@@ -1,0 +1,22 @@
+#!/bin/bash
+
+#SBATCH --partition=gpu
+#SBATCH --gpus=1
+#SBATCH --job-name=train_t5
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=18
+#SBATCH --time=30:00:00
+#SBATCH --mem=100000M
+#SBATCH --output=output/slurm_output_%A_train_t5.out
+
+module purge
+module load 2022
+module load Anaconda3/2022.05
+
+source activate DL4NLP
+
+cd $HOME/dl4nlp-text-summarization/
+
+# python train.py --wandb-mode disabled --model facebook/bart-base
+# python train_without_wandb.py --model facebook/bart-base --epochs 1  # Training for 20 'epoch runs'
+python train_without_wandb.py --model t5-large --epochs 1  # Training for 20 'epoch runs'

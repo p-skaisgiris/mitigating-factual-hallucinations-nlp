@@ -1,0 +1,56 @@
+2023-10-11 16:31:07.714708: I tensorflow/core/util/port.cc:110] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2023-10-11 16:31:07.982285: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2023-10-11 16:31:10.557857: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2023-10-11 16:31:26.263146: W tensorflow/core/common_runtime/gpu/gpu_device.cc:1960] Cannot dlopen some GPU libraries. Please make sure the missing libraries mentioned above are installed properly if you would like to use GPU. Follow the guide at https://www.tensorflow.org/install/gpu for how to download and setup the required libraries for your platform.
+Skipping registering GPU devices...
+WARNING:datasets.builder:Found cached dataset xsum (/home/scur0666/.cache/huggingface/datasets/xsum/default/1.2.0/082863bf4754ee058a5b6f6525d0cb2b18eadb62c7b370b095d1364050a52b71)
+WARNING:datasets.arrow_dataset:Loading cached split indices for dataset at /home/scur0666/.cache/huggingface/datasets/xsum/default/1.2.0/082863bf4754ee058a5b6f6525d0cb2b18eadb62c7b370b095d1364050a52b71/cache-cb28695fbc0c5af7.arrow and /home/scur0666/.cache/huggingface/datasets/xsum/default/1.2.0/082863bf4754ee058a5b6f6525d0cb2b18eadb62c7b370b095d1364050a52b71/cache-4d5b51f626b26a3d.arrow
+WARNING:datasets.arrow_dataset:Loading cached processed dataset at /home/scur0666/.cache/huggingface/datasets/xsum/default/1.2.0/082863bf4754ee058a5b6f6525d0cb2b18eadb62c7b370b095d1364050a52b71/cache-6aa57b2f74234a07.arrow
+WARNING:datasets.arrow_dataset:Loading cached processed dataset at /home/scur0666/.cache/huggingface/datasets/xsum/default/1.2.0/082863bf4754ee058a5b6f6525d0cb2b18eadb62c7b370b095d1364050a52b71/cache-d38321f081a8b922.arrow
+WARNING:datasets.arrow_dataset:Loading cached shuffled indices for dataset at /home/scur0666/.cache/huggingface/datasets/xsum/default/1.2.0/082863bf4754ee058a5b6f6525d0cb2b18eadb62c7b370b095d1364050a52b71/cache-c19112ff2997dc19.arrow
+wandb: Currently logged in as: etatar-atdamen (ribfrac_team7). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.15.12 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.15.11
+wandb: Run data is saved locally in /gpfs/home1/scur0666/dl4nlp-text-summarization/wandb/run-20231011_163143-e34fzd9a
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run peach-sun-31
+wandb: ⭐️ View project at https://wandb.ai/ribfrac_team7/huggingface
+wandb: 🚀 View run at https://wandb.ai/ribfrac_team7/huggingface/runs/e34fzd9a
+<All keys matched successfully>
+model facebook/bart-base
+Size of train set 172301
+Size of eval set 43076
+{'loss': 3.2961, 'learning_rate': 1.6666666666666667e-05, 'epoch': 0.17}
+Traceback (most recent call last):
+  File "/home/scur0666/.conda/envs/DL4NLP/lib/python3.11/site-packages/torch/serialization.py", line 441, in save
+    _save(obj, opened_zipfile, pickle_module, pickle_protocol)
+  File "/home/scur0666/.conda/envs/DL4NLP/lib/python3.11/site-packages/torch/serialization.py", line 668, in _save
+    zip_file.write_record(name, storage.data_ptr(), num_bytes)
+RuntimeError: [enforce fail at inline_container.cc:471] . PytorchStreamWriter failed writing file data/1: file write failed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/gpfs/home1/scur0666/dl4nlp-text-summarization/train_without_wandb.py", line 100, in <module>
+    metrics = trainer.train()
+              ^^^^^^^^^^^^^^^
+
+slurmstepd: error: *** JOB 4108546 ON gcn20 CANCELLED AT 2023-10-11T17:03:16 ***
+slurmstepd: error: container_p_join: open failed for /slurm/4108546/.ns: No such file or directory
+slurmstepd: error: container_g_join(4108546): No such file or directory
+
+JOB STATISTICS
+==============
+Job ID: 4108546
+Cluster: snellius
+User/Group: scur0666/scur0666
+State: CANCELLED (exit code 0)
+Nodes: 1
+Cores per node: 18
+CPU Utilized: 00:00:01
+CPU Efficiency: 0.00% of 09:43:48 core-walltime
+Job Wall-clock time: 00:32:26
+Memory Utilized: 5.72 GB
+Memory Efficiency: 5.86% of 97.66 GB

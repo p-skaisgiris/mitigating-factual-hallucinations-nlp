@@ -1,0 +1,60 @@
+2023-10-09 23:09:50.745501: I tensorflow/core/util/port.cc:110] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2023-10-09 23:09:51.004752: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2023-10-09 23:09:53.363801: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2023-10-09 23:10:07.228331: W tensorflow/core/common_runtime/gpu/gpu_device.cc:1960] Cannot dlopen some GPU libraries. Please make sure the missing libraries mentioned above are installed properly if you would like to use GPU. Follow the guide at https://www.tensorflow.org/install/gpu for how to download and setup the required libraries for your platform.
+Skipping registering GPU devices...
+WARNING:datasets.builder:Found cached dataset xsum (/home/scur0666/.cache/huggingface/datasets/xsum/default/1.2.0/082863bf4754ee058a5b6f6525d0cb2b18eadb62c7b370b095d1364050a52b71)
+<All keys matched successfully>
+GPU available:  True
+NVIDIA A100-SXM4-40GB
+TF []
+Traceback (most recent call last):
+  File "/gpfs/home1/scur0666/dl4nlp-text-summarization/evaluate_model_pegasus.py", line 55, in <module>
+    summary_ids = model.generate(inputs["input_ids"])
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/scur0666/.conda/envs/DL4NLP/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 115, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/scur0666/.conda/envs/DL4NLP/lib/python3.11/site-packages/transformers/generation/utils.py", line 1486, in generate
+    model_kwargs = self._prepare_encoder_decoder_kwargs_for_generation(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/scur0666/.conda/envs/DL4NLP/lib/python3.11/site-packages/transformers/generation/utils.py", line 655, in _prepare_encoder_decoder_kwargs_for_generation
+    model_kwargs["encoder_outputs"]: ModelOutput = encoder(**encoder_kwargs)
+                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/scur0666/.conda/envs/DL4NLP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/scur0666/.conda/envs/DL4NLP/lib/python3.11/site-packages/transformers/models/pegasus/modeling_pegasus.py", line 771, in forward
+    embed_pos = self.embed_positions(input_shape)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/scur0666/.conda/envs/DL4NLP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/scur0666/.conda/envs/DL4NLP/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 115, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/scur0666/.conda/envs/DL4NLP/lib/python3.11/site-packages/transformers/models/pegasus/modeling_pegasus.py", line 140, in forward
+    return super().forward(positions)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/scur0666/.conda/envs/DL4NLP/lib/python3.11/site-packages/torch/nn/modules/sparse.py", line 162, in forward
+    return F.embedding(
+           ^^^^^^^^^^^^
+  File "/home/scur0666/.conda/envs/DL4NLP/lib/python3.11/site-packages/torch/nn/functional.py", line 2210, in embedding
+    return torch.embedding(weight, input, padding_idx, scale_grad_by_freq, sparse)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+IndexError: index out of range in self
+
+JOB STATISTICS
+==============
+Job ID: 4062615
+Cluster: snellius
+User/Group: scur0666/scur0666
+State: FAILED (exit code 1)
+Nodes: 1
+Cores per node: 18
+CPU Utilized: 00:00:42
+CPU Efficiency: 4.32% of 00:16:12 core-walltime
+Job Wall-clock time: 00:00:54
+Memory Utilized: 3.29 GB
+Memory Efficiency: 3.37% of 97.66 GB

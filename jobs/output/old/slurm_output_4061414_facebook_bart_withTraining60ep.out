@@ -1,0 +1,70 @@
+2023-10-09 21:59:47.987851: I tensorflow/core/util/port.cc:110] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2023-10-09 21:59:48.321304: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2023-10-09 21:59:50.455377: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2023-10-09 22:00:04.418823: W tensorflow/core/common_runtime/gpu/gpu_device.cc:1960] Cannot dlopen some GPU libraries. Please make sure the missing libraries mentioned above are installed properly if you would like to use GPU. Follow the guide at https://www.tensorflow.org/install/gpu for how to download and setup the required libraries for your platform.
+Skipping registering GPU devices...
+WARNING:datasets.builder:Found cached dataset xsum (/home/scur0666/.cache/huggingface/datasets/xsum/default/1.2.0/082863bf4754ee058a5b6f6525d0cb2b18eadb62c7b370b095d1364050a52b71)
+<All keys matched successfully>
+GPU available:  True
+NVIDIA A100-SXM4-40GB
+TF []
+Prompt:
+Summarize the following text: Prison Link Cymru had 1,099 referrals in 2015-16 and said some ex-offenders were living rough for up to a year before finding suitable accommodation.
+Workers at the charity claim investment in housing would be cheaper than jailing homeless repeat offenders.
+The Welsh Government said more people than ever were getting help to address housing problems.
+Changes to the Housing Act in Wales, introduced in 2015, removed the right for prison leavers to be given priority for accommodation.
+Prison Link Cymru, which helps people find accommodation after their release, said things were generally good for women because issues such as children or domestic violence were now considered.
+However, the same could not be said for men, the charity said, because issues which often affect them, such as post traumatic stress disorder or drug dependency, were often viewed as less of a priority.
+Andrew Stevens, who works in Welsh prisons trying to secure housing for prison leavers, said the need for accommodation was "chronic".
+"There's a desperate need for it, finding suitable accommodation for those leaving prison there is just a lack of it everywhere," he said.
+"It could take six months to a year, without a lot of help they could be on the streets for six months.
+"When you think of the consequences of either being on the street, especially with the cold weather at the moment or you may have a roof over your head, sometimes there is only one choice."
+Mr Stevens believes building more one-bedroom flats could help ease the problem.
+"The average price is a hundred pounds a week to keep someone in a rented flat, prison is a lot more than that so I would imagine it would save the public purse quite a few pounds," he said.
+Official figures show 830 one-bedroom properties were built in the year to March 2016, of an overall total of 6,900 new properties in Wales.
+Marc, 50, who has been in and out of prison for the past 20 years for burglary offences, said he struggled to find accommodation each time he was released.
+He said he would ask himself: "Where am I going to stay? Where am I going to live? Have I got somewhere where I can see my daughter."
+"You're put out among the same sort of people doing the same sort of thing, and it's difficult, it's difficult to get away from it. It's like every man for himself, there's nothing."
+Marc has now found stable accommodation with homeless charity Emmaus and said it had been life changing.
+"You feel safe, you got hot food, you've got company of people in similar situations to yourself but all dealing with different issues. It's a constructive, helpful atmosphere," he said.
+Tom Clarke, chief executive of Emmaus South Wales, agreed there was not enough support available.
+"We do still see [people] homeless on the streets, so clearly they haven't got accommodation and haven't got provision," he said.
+"I think the key is connecting people with the services they need. I don't delude myself that Emmaus can offer a one size fits all for everyone, we can't.
+"But there must be other opportunities and given suitable encouragement I believe that can and should happen."
+A Welsh Government spokesman said the national pathway for homeless services to children, young people and adults in the secure estate had prevented many people from losing their home whilst serving their prison sentence.
+It added there were already significant demands for one-bedroom flats across the public and private sector and it was providing 20,000 new affordable homes in the next five years.
+Summary:
+More than a million people have been arrested in connection with the criminalisation of children and drug offences, according to the chief executive of a charity.
+Loading Question Generation Pipeline...
+Loading Question Answering Pipeline...
+Loading Named Entity Recognition Pipeline...
+Traceback (most recent call last):
+  File "/gpfs/home1/scur0666/dl4nlp-text-summarization/evaluate_model.py", line 54, in <module>
+    metric_res = compute_metrics_pipeline([article], [pred_summary])
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/gpfs/home1/scur0666/dl4nlp-text-summarization/metric/metrics.py", line 57, in compute_metrics_pipeline
+    qags = factsumm.extract_qas(article, summary, device=device)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/gpfs/home1/scur0666/dl4nlp-text-summarization/metric/factsumm/factsumm/factsumm.py", line 333, in extract_qas
+    source_ents = self.ner(source_lines)
+                  ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/scur0666/.conda/envs/DL4NLP/lib/python3.11/site-packages/factsumm/utils/module_entity.py", line 44, in extract_entities_flair
+    if entity.text not in cache:
+       ^^^^^^^^^^^
+AttributeError: 'str' object has no attribute 'text'
+
+JOB STATISTICS
+==============
+Job ID: 4061414
+Cluster: snellius
+User/Group: scur0666/scur0666
+State: RUNNING
+Nodes: 1
+Cores per node: 18
+CPU Utilized: 00:00:00
+CPU Efficiency: 0.00% of 00:20:06 core-walltime
+Job Wall-clock time: 00:01:07
+Memory Utilized: 0.00 MB (estimated maximum)
+Memory Efficiency: 0.00% of 97.66 GB (97.66 GB/node)
+WARNING: Efficiency statistics may be misleading for RUNNING jobs.

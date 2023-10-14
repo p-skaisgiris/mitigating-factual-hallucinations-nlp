@@ -1,0 +1,26 @@
+2023-10-09 23:24:51.436504: I tensorflow/core/util/port.cc:110] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2023-10-09 23:24:51.696300: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2023-10-09 23:24:53.841079: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2023-10-09 23:25:06.997044: W tensorflow/core/common_runtime/gpu/gpu_device.cc:1960] Cannot dlopen some GPU libraries. Please make sure the missing libraries mentioned above are installed properly if you would like to use GPU. Follow the guide at https://www.tensorflow.org/install/gpu for how to download and setup the required libraries for your platform.
+Skipping registering GPU devices...
+<All keys matched successfully>
+Traceback (most recent call last):
+  File "/gpfs/home1/scur0666/dl4nlp-text-summarization/evaluate_model_pegasus.py", line 10, in <module>
+    device = "cuda" if torch.cuda.is_available() else "cpu"
+                       ^^^^^
+NameError: name 'torch' is not defined
+
+JOB STATISTICS
+==============
+Job ID: 4062635
+Cluster: snellius
+User/Group: scur0666/scur0666
+State: FAILED (exit code 1)
+Nodes: 1
+Cores per node: 18
+CPU Utilized: 00:00:30
+CPU Efficiency: 3.88% of 00:12:54 core-walltime
+Job Wall-clock time: 00:00:43
+Memory Utilized: 3.30 GB
+Memory Efficiency: 3.38% of 97.66 GB

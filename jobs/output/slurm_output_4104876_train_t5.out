@@ -1,0 +1,53 @@
+2023-10-11 14:21:01.284393: I tensorflow/core/util/port.cc:110] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2023-10-11 14:21:01.621413: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2023-10-11 14:21:04.459007: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2023-10-11 14:21:20.467144: W tensorflow/core/common_runtime/gpu/gpu_device.cc:1960] Cannot dlopen some GPU libraries. Please make sure the missing libraries mentioned above are installed properly if you would like to use GPU. Follow the guide at https://www.tensorflow.org/install/gpu for how to download and setup the required libraries for your platform.
+Skipping registering GPU devices...
+WARNING:datasets.builder:Found cached dataset xsum (/home/scur0666/.cache/huggingface/datasets/xsum/default/1.2.0/082863bf4754ee058a5b6f6525d0cb2b18eadb62c7b370b095d1364050a52b71)
+/home/scur0666/.conda/envs/DL4NLP/lib/python3.11/site-packages/transformers/models/t5/tokenization_t5_fast.py:155: FutureWarning: This tokenizer was incorrectly instantiated with a model max length of 512 which will be corrected in Transformers v5.
+For now, this behavior is kept to avoid breaking backwards compatibility when padding/encoding with `truncation is True`.
+- Be aware that you SHOULD NOT rely on t5-large automatically truncating your input to 512 when padding/encoding.
+- If you want to encode/pad to sequences longer than 512 you can either instantiate this tokenizer with `model_max_length` or pass `max_length` when encoding/padding.
+- To avoid this warning, please instantiate this tokenizer with `model_max_length` set to your preferred value.
+  warnings.warn(
+WARNING:datasets.arrow_dataset:Loading cached split indices for dataset at /home/scur0666/.cache/huggingface/datasets/xsum/default/1.2.0/082863bf4754ee058a5b6f6525d0cb2b18eadb62c7b370b095d1364050a52b71/cache-cb28695fbc0c5af7.arrow and /home/scur0666/.cache/huggingface/datasets/xsum/default/1.2.0/082863bf4754ee058a5b6f6525d0cb2b18eadb62c7b370b095d1364050a52b71/cache-4d5b51f626b26a3d.arrow
+WARNING:datasets.arrow_dataset:Loading cached processed dataset at /home/scur0666/.cache/huggingface/datasets/xsum/default/1.2.0/082863bf4754ee058a5b6f6525d0cb2b18eadb62c7b370b095d1364050a52b71/cache-d84a046c868aac7c.arrow
+WARNING:datasets.arrow_dataset:Loading cached processed dataset at /home/scur0666/.cache/huggingface/datasets/xsum/default/1.2.0/082863bf4754ee058a5b6f6525d0cb2b18eadb62c7b370b095d1364050a52b71/cache-ea81181efdbfae29.arrow
+WARNING:datasets.arrow_dataset:Loading cached shuffled indices for dataset at /home/scur0666/.cache/huggingface/datasets/xsum/default/1.2.0/082863bf4754ee058a5b6f6525d0cb2b18eadb62c7b370b095d1364050a52b71/cache-b1bed0d2e9b7473a.arrow
+wandb: Currently logged in as: etatar-atdamen (ribfrac_team7). Use `wandb login --relogin` to force relogin
+--- Logging error ---
+Traceback (most recent call last):
+  File "/home/scur0666/.conda/envs/DL4NLP/lib/python3.11/logging/__init__.py", line 1114, in emit
+    self.flush()
+  File "/home/scur0666/.conda/envs/DL4NLP/lib/python3.11/logging/__init__.py", line 1094, in flush
+    self.stream.flush()
+OSError: [Errno 122] Disk quota exceeded
+Call stack:
+  File "/home/scur0666/.conda/envs/DL4NLP/lib/python3.11/threading.py", line 995, in _bootstrap
+    self._bootstrap_inner()
+  File "/home/scur0666/.conda/envs/DL4NLP/lib/python3.11/threading.py", line 1038, in _bootstrap_inner
+    self.run()
+Error in sys.excepthook:
+object address  : 0x14d194e31d40
+object refcount : 1
+
+
+
+slurmstepd: error: *** JOB 4104876 ON gcn17 CANCELLED AT 2023-10-11T16:10:42 ***
+slurmstepd: error: container_p_join: open failed for /slurm/4104876/.ns: No such file or directory
+slurmstepd: error: container_g_join(4104876): No such file or directory
+
+JOB STATISTICS
+==============
+Job ID: 4104876
+Cluster: snellius
+User/Group: scur0666/scur0666
+State: CANCELLED (exit code 0)
+Nodes: 1
+Cores per node: 18
+CPU Utilized: 00:00:01
+CPU Efficiency: 0.00% of 1-08:59:24 core-walltime
+Job Wall-clock time: 01:49:58
+Memory Utilized: 7.81 GB
+Memory Efficiency: 8.00% of 97.66 GB

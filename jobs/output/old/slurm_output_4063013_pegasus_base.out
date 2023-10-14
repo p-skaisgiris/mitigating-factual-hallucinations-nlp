@@ -1,0 +1,96 @@
+2023-10-09 23:49:53.175580: I tensorflow/core/util/port.cc:110] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2023-10-09 23:49:53.441908: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2023-10-09 23:49:55.458114: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2023-10-09 23:50:08.133089: W tensorflow/core/common_runtime/gpu/gpu_device.cc:1960] Cannot dlopen some GPU libraries. Please make sure the missing libraries mentioned above are installed properly if you would like to use GPU. Follow the guide at https://www.tensorflow.org/install/gpu for how to download and setup the required libraries for your platform.
+Skipping registering GPU devices...
+WARNING:datasets.builder:Found cached dataset xsum (/home/scur0666/.cache/huggingface/datasets/xsum/default/1.2.0/082863bf4754ee058a5b6f6525d0cb2b18eadb62c7b370b095d1364050a52b71)
+../aten/src/ATen/native/cuda/Indexing.cu:1146: indexSelectLargeIndex: block: [12,0,0], thread: [32,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+../aten/src/ATen/native/cuda/Indexing.cu:1146: indexSelectLargeIndex: block: [12,0,0], thread: [33,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+../aten/src/ATen/native/cuda/Indexing.cu:1146: indexSelectLargeIndex: block: [12,0,0], thread: [34,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+../aten/src/ATen/native/cuda/Indexing.cu:1146: indexSelectLargeIndex: block: [12,0,0], thread: [35,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+../aten/src/ATen/native/cuda/Indexing.cu:1146: indexSelectLargeIndex: block: [12,0,0], thread: [36,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+../aten/src/ATen/native/cuda/Indexing.cu:1146: indexSelectLargeIndex: block: [12,0,0], thread: [37,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+../aten/src/ATen/native/cuda/Indexing.cu:1146: indexSelectLargeIndex: block: [12,0,0], thread: [38,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+../aten/src/ATen/native/cuda/Indexing.cu:1146: indexSelectLargeIndex: block: [12,0,0], thread: [39,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+../aten/src/ATen/native/cuda/Indexing.cu:1146: indexSelectLargeIndex: block: [12,0,0], thread: [40,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+../aten/src/ATen/native/cuda/Indexing.cu:1146: indexSelectLargeIndex: block: [12,0,0], thread: [41,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+../aten/src/ATen/native/cuda/Indexing.cu:1146: indexSelectLargeIndex: block: [12,0,0], thread: [42,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+../aten/src/ATen/native/cuda/Indexing.cu:1146: indexSelectLargeIndex: block: [12,0,0], thread: [43,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+../aten/src/ATen/native/cuda/Indexing.cu:1146: indexSelectLargeIndex: block: [12,0,0], thread: [44,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+../aten/src/ATen/native/cuda/Indexing.cu:1146: indexSelectLargeIndex: block: [12,0,0], thread: [45,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+../aten/src/ATen/native/cuda/Indexing.cu:1146: indexSelectLargeIndex: block: [12,0,0], thread: [46,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+../aten/src/ATen/native/cuda/Indexing.cu:1146: indexSelectLargeIndex: block: [12,0,0], thread: [47,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+../aten/src/ATen/native/cuda/Indexing.cu:1146: indexSelectLargeIndex: block: [12,0,0], thread: [48,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+../aten/src/ATen/native/cuda/Indexing.cu:1146: indexSelectLargeIndex: block: [12,0,0], thread: [49,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+../aten/src/ATen/native/cuda/Indexing.cu:1146: indexSelectLargeIndex: block: [12,0,0], thread: [50,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+../aten/src/ATen/native/cuda/Indexing.cu:1146: indexSelectLargeIndex: block: [12,0,0], thread: [51,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+../aten/src/ATen/native/cuda/Indexing.cu:1146: indexSelectLargeIndex: block: [12,0,0], thread: [52,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+../aten/src/ATen/native/cuda/Indexing.cu:1146: indexSelectLargeIndex: block: [12,0,0], thread: [53,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+../aten/src/ATen/native/cuda/Indexing.cu:1146: indexSelectLargeIndex: block: [12,0,0], thread: [54,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+../aten/src/ATen/native/cuda/Indexing.cu:1146: indexSelectLargeIndex: block: [12,0,0], thread: [55,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+../aten/src/ATen/native/cuda/Indexing.cu:1146: indexSelectLargeIndex: block: [12,0,0], thread: [56,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+../aten/src/ATen/native/cuda/Indexing.cu:1146: indexSelectLargeIndex: block: [12,0,0], thread: [57,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+../aten/src/ATen/native/cuda/Indexing.cu:1146: indexSelectLargeIndex: block: [12,0,0], thread: [58,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+../aten/src/ATen/native/cuda/Indexing.cu:1146: indexSelectLargeIndex: block: [12,0,0], thread: [59,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+../aten/src/ATen/native/cuda/Indexing.cu:1146: indexSelectLargeIndex: block: [12,0,0], thread: [60,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+../aten/src/ATen/native/cuda/Indexing.cu:1146: indexSelectLargeIndex: block: [12,0,0], thread: [61,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+../aten/src/ATen/native/cuda/Indexing.cu:1146: indexSelectLargeIndex: block: [12,0,0], thread: [62,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+../aten/src/ATen/native/cuda/Indexing.cu:1146: indexSelectLargeIndex: block: [12,0,0], thread: [63,0,0] Assertion `srcIndex < srcSelectDimSize` failed.
+<All keys matched successfully>
+GPU available:  True
+NVIDIA A100-SXM4-40GB
+TF []
+Traceback (most recent call last):
+  File "/gpfs/home1/scur0666/dl4nlp-text-summarization/evaluate_model_pegasus.py", line 59, in <module>
+    summary_ids = model.generate(inputs["input_ids"])
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/scur0666/.conda/envs/DL4NLP/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 115, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/scur0666/.conda/envs/DL4NLP/lib/python3.11/site-packages/transformers/generation/utils.py", line 1486, in generate
+    model_kwargs = self._prepare_encoder_decoder_kwargs_for_generation(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/scur0666/.conda/envs/DL4NLP/lib/python3.11/site-packages/transformers/generation/utils.py", line 655, in _prepare_encoder_decoder_kwargs_for_generation
+    model_kwargs["encoder_outputs"]: ModelOutput = encoder(**encoder_kwargs)
+                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/scur0666/.conda/envs/DL4NLP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/scur0666/.conda/envs/DL4NLP/lib/python3.11/site-packages/transformers/models/pegasus/modeling_pegasus.py", line 820, in forward
+    layer_outputs = encoder_layer(
+                    ^^^^^^^^^^^^^^
+  File "/home/scur0666/.conda/envs/DL4NLP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/scur0666/.conda/envs/DL4NLP/lib/python3.11/site-packages/transformers/models/pegasus/modeling_pegasus.py", line 336, in forward
+    hidden_states, attn_weights, _ = self.self_attn(
+                                     ^^^^^^^^^^^^^^^
+  File "/home/scur0666/.conda/envs/DL4NLP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/scur0666/.conda/envs/DL4NLP/lib/python3.11/site-packages/transformers/models/pegasus/modeling_pegasus.py", line 195, in forward
+    query_states = self.q_proj(hidden_states) * self.scaling
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/scur0666/.conda/envs/DL4NLP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/scur0666/.conda/envs/DL4NLP/lib/python3.11/site-packages/torch/nn/modules/linear.py", line 114, in forward
+    return F.linear(input, self.weight, self.bias)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: CUDA error: CUBLAS_STATUS_NOT_INITIALIZED when calling `cublasCreate(handle)`
+
+JOB STATISTICS
+==============
+Job ID: 4063013
+Cluster: snellius
+User/Group: scur0666/scur0666
+State: RUNNING
+Nodes: 1
+Cores per node: 18
+CPU Utilized: 00:00:00
+CPU Efficiency: 0.00% of 00:16:12 core-walltime
+Job Wall-clock time: 00:00:54
+Memory Utilized: 0.00 MB (estimated maximum)
+Memory Efficiency: 0.00% of 97.66 GB (97.66 GB/node)
+WARNING: Efficiency statistics may be misleading for RUNNING jobs.
