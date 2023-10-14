@@ -1,43 +1,85 @@
 # dl4nlp-text-summarization
+Factual Hallucination Metrics for NLG Evaluation
+
+## Table of Contents
+- [Introduction](#introduction)
+- [Methodology](#methodology)
+- [Dataset](#dataset)
+- [Models](#models)
+- [Hallucination Metrics](#hallucination-metrics)
+
+## Introduction
+
+Recent advancements in Natural Language Generation (NLG) have improved the fluency and coherence of NLG outputs in tasks such as summarization and dialogue generation. However, these models are prone to generate content that is nonsensical, grammatically incorrect, or irrelevant to the topic, and are known as "hallucinations." Hallucinations, particularly factual inaccuracies, pose serious consequences such as spreading misinformation and violating privacy. To address this challenge, researchers have explored various measurement and mitigation methods. This paper provides an ensemble of metrics to measure whether the generated text is factually correct.
+
+## Methodology
+
+The methodology employed in this paper involves the use of various metrics to assess and address hallucinatory content effectively. In addition to traditional metrics like ROUGE, the following metrics are utilized:
+
+- **QAGS (Question-Answering for Factual Consistency)**: This metric generates questions about the generated summary and evaluates factual consistency by comparing the generated answers to the expected ones.
+
+- **BLEURT (Context-Aware Metric)**: BLEURT surpasses traditional metrics like BLEU and ROUGE by employing pre-trained transformers to gauge similarity between generated and reference text, capturing nuances in quality such as fluency and coherence.
+
+- **FACT (Triple Relation-Based Metric)**: FACT leverages pre-trained models to extract factual triples from both the source document and the summary. Its output is a ratio of how many triples extracted from the summary are also found in the source document.
+
+- **SUMMAC (Sentence-Level Metric)**: SUMMAC breaks down source documents and summaries into sentences and computes entailment probabilities between document and summary sentences using Natural Language Inference (NLI).
+
+## Dataset
+
+The XSum (Extreme Summarization) dataset is used for experimentation. This dataset consists of approximately 226,000 news articles from the BBC News website, each accompanied by a single-sentence summary. The summaries were written by professional editors and are considered to be high-quality references.
+
+## Models
+
+For most of the experiments, the T5 language model is used. Specific model variants include:
+- **t5-small**: The smallest version of the t5 model.
+- **t5-small-xsum**: The small version of the t5 model, fine-tuned on the XSUM dataset.
+- **t5-large**: The t5 model with 770 million parameters.
+- **t5-large-xsum**: The large version of t5 fine-tuned on XSum.
+- **t5-large-xsum-cnn**: Based on the t5-large model, finetuned on the XSUM and CNN Daily Mail summarization datasets.
+
+## Conclusion
+
+This paper presents a comprehensive approach to evaluate and mitigate factual hallucinations in NLG. By utilizing an ensemble of metrics, analyzing different language models, and exploring various methods for mitigating hallucinations, the paper aims to contribute to the understanding and improvement of NLG systems.
+
+For more details, refer to the complete paper. **LINK PAPER**
 
 
 
-Project structure:
-- experiments: 
-How to combate hallucination; with prompt engineering or Chain of Verification (CoVe). 
-- jobs: files used for job queuing on server using SLURM.  
-- metric: contain hallucationa metric such as factsumm and summac. Download bleurt model within this folder, see notebook on how to install and bug fix.
-- model
+## Environment
 
-training--files
+```
+conda create -n DL4NLP python=3.10
+conda activate DL4NLP
+pip install -r requirements.yml
+```
 
-- Lots of bugs and package to do manually, see hallucination.ipynb
-  - For factsumm to get the package dir. :
-      - python in terminal
-      - >>> import factsumm
-      - >>> factsumm.__file__
+Contain hallucationa metric such as factsumm and summac. See notebookon 'hallucination_metrics.ipynb' how to install and bug fix required for factsumm. In order to make use of GPU training do not use pip install factsumm, but clone from the original repository. For factsumm to get the package dir. Open python in terminal
 
-- ??conda env create -f install_env.yml??
-
-- Run: 'python train.py --wandb-mode disabled
-
-- Lots of bugs and package to do manually, see hallucination.ipynb
+    > import factsumm
+    > factsumm.__file__
 
 
+## Training
+(See train.py for more arguments)
 
-checkpoints = {
+```
+python train.py --wandb-mode disabled
+```
 
-    # t5-small : Paulius
-    "t5-s": "t5-small",
-    "t5-s-xsum": "pki/t5-small-finetuned_xsum",   
-    
-    # t5-large : Luka
-    "t5-large": "t5-large",
-    "t5-large-xsum": "sysresearch101/t5-large-finetuned-xsum",
+## Hallucination Evaluation
+(See train.py for more arguments)
 
-    # t5-large xsum-cnn Skipping for now
-    # "t5-large-xsum-cnn" : "sysresearch101/t5-large-finetuned-xsum-cnn",
+```
+python eval.py 
+```
 
-    # google/pegasus-xsum" :  Erencan
-    "pegasus-xsum": "google/pegasus-xsum",
-}
+## Human judgment comparison 
+Comparing our halluciniation metrics with human judgment of hallucination in XSUM using [google-research-dataset](https://github.com/google-research-datasets/xsum_hallucination_annotations/tree/master)
+
+```
+python human_judgement.py 
+```
+
+
+## About
+Paulius, Myrthe, Erencan, Luka
