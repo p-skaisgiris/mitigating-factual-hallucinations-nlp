@@ -81,7 +81,7 @@ python human_judgement.py
 ```
 
 ## Model checkpoints
-Note however, that these model were only trained as a sanity check were not u
+Note however, that these model were only trained as a sanity check and that these models have not been used in the hallucination experiments. 
 Bart-base and T5-large checkpoints can be found here: [checkpoints](https://drive.google.com/drive/folders/1IF9n4bljNzDUlAX7U54LgtBZWko8z0jO?usp=sharing)
 
 ## About
