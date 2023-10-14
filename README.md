@@ -80,6 +80,9 @@ Comparing our halluciniation metrics with human judgment of hallucination in XSU
 python human_judgement.py 
 ```
 
+## Model checkpoints
+Note however, that these model were only trained as a sanity check were not u
+Bart-base and T5-large checkpoints can be found here: [checkpoints](https://drive.google.com/drive/folders/1IF9n4bljNzDUlAX7U54LgtBZWko8z0jO?usp=sharing)
 
 ## About
 Paulius, Myrthe, Erencan, Luka
