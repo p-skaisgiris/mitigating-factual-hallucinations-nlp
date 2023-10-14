@@ -64,13 +64,12 @@ Contain hallucationa metric such as factsumm and summac. See notebookon 'halluci
 
 ```
 python train.py --wandb-mode disabled
+python train_without_wandb.py         # training in subepochs to see hallucination metrics over steps
 ```
 
 ## Hallucination Evaluation
-(See train.py for more arguments)
-
 ```
-python eval.py 
+python evaluate_model_all.py 
 ```
 
 ## Human judgment comparison 
